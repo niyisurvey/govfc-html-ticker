@@ -28,7 +28,7 @@
 
         #intro-question {
             font-style: italic;
-            font-size: 1.4em; /* Kept em here, relative to body */
+            font-size: 1.4em;
             color: #88c0d0;
             margin-bottom: 30px;
             line-height: 1.4;
@@ -40,7 +40,7 @@
         }
 
         #ticker-intro {
-            font-size: 1.5em; /* Kept em here, relative to body */
+            font-size: 1.5em;
             color: #b0b0b0;
             margin: 0 0 5px 0;
             font-weight: bold;
@@ -49,7 +49,7 @@
 
         #game-minutes-big {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 20em; /* Kept em here, relative to body */
+            font-size: 20em;
             color: #FFFFFF;
             line-height: 0.9;
             font-weight: bold;
@@ -58,8 +58,8 @@
             padding: 0;
         }
 
-        #ticker-unit {
-            font-size: 2.2em; /* Kept em here, relative to body */
+        #ticker-unit { /* For "MINUTES" */
+            font-size: 2.2em;
             color: #b0b0b0;
             margin: 0;
             font-weight: bold;
@@ -67,22 +67,70 @@
             margin-top: -0.1em;
         }
 
-        #ticker-seconds {
-            font-size: 1.5em; /* Kept em here, relative to body */
+        #ticker-seconds { /* For "AND XXX FUCKING SECONDS" */
+            font-size: 1.5em;
             color: #FFFFFF;
             margin: 5px 0 0 0;
             font-weight: bold;
             line-height: 1.2;
         }
+        .term-explainer-asterisk { /* Style for the asterisk */
+            font-size: 0.8em;
+            vertical-align: super;
+            margin-left: 2px;
+            color: #aaaaaa; /* Match explainer text color */
+            font-style: normal; /* Keep asterisk non-italic if intro Q is italic */
+            font-weight: normal; /* Keep asterisk non-bold */
+        }
+
 
         #half-time-message {
-            font-size: 1.4em; /* Kept em here, relative to body */
+            font-size: 1.4em;
             color: #FFEB3B;
             min-height: 1.5em;
             font-weight: bold;
             margin-top: 15px;
             margin-bottom: 30px;
         }
+
+         /* Custom Term Section Styling */
+        #custom-term-section {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            border-top: 1px solid #2a2a2a; /* Subtle separator */
+            padding-top: 20px;
+        }
+
+        #custom-term-explainer {
+            font-size: 0.8em; /* Same size as contact info */
+            color: #aaaaaa; /* Same color as contact info */
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-transform: lowercase; /* As requested */
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #term-length-input {
+            font-size: 1.1em;
+            padding: 8px 12px;
+            width: 80px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            border: 1px solid #454545;
+            border-radius: 4px;
+            text-align: center;
+        }
+        #term-length-input::-webkit-outer-spin-button,
+        #term-length-input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        #term-length-input[type=number] {
+          -moz-appearance: textfield; /* Firefox */
+        }
+
 
         /* "Super Discreet" Personal Details Section */
         .details-section {
@@ -95,46 +143,42 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* General P styling - applies unless overridden */
         .details-section p {
-            font-size: 0.8rem; /* CHANGED to rem */
+            font-size: 0.8em;
             line-height: 1.5;
             margin-bottom: 8px;
             color: #707070;
-            font-weight: normal; /* Ensure normal weight */
         }
 
         .details-section .contact-links {
             margin-top: 8px;
-            margin-bottom: 8px;
+             margin-bottom: 8px; /* Ensure spacing */
         }
         .details-section .contact-links a {
             color: #5c7a8c;
             text-decoration: none;
             margin: 0 8px;
-            font-size: 0.8rem; /* CHANGED to rem, same as p and personal-info */
+            font-size: 0.8em;
             display: inline-block;
             margin-bottom: 5px;
             line-height: 1.5;
-            font-weight: normal; /* Explicitly normal weight */
         }
         .details-section .contact-links a:hover {
             text-decoration: underline;
             color: #79aacc;
         }
-        /* Style for the personal info line */
-        #personal-info {
-            font-size: 0.8rem; /* CHANGED to rem, same as links */
-            color: #aaaaaa;
+        #personal-info { /* Style for personal info line */
+            font-size: 0.8em; /* Same size as links */
+            color: #aaaaaa; /* Different color */
             line-height: 1.5;
             margin-bottom: 8px;
-            font-weight: normal; /* Explicitly normal weight */
         }
+
 
         /* Footer */
         footer {
             margin-top: 30px;
-            font-size: 0.7em; /* Kept em here, relative to body */
+            font-size: 0.7em;
             color: #454545;
         }
         footer p {
@@ -169,9 +213,9 @@
             #ticker-unit { font-size: 1.4em; }
             #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1em; }
-            /* Unified small size using rem */
-            .details-section p, #personal-info, .details-section .contact-links a {
-                font-size: 0.75rem; /* CHANGED to rem */
+            #custom-term-explainer { font-size: 0.75em; } /* Match detail text size */
+            #personal-info, .details-section .contact-links a {
+                font-size: 0.75em;
             }
         }
         @media (max-width: 380px) {
@@ -180,10 +224,6 @@
              #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 0.9em; }
-             /* Unified extra-small size using rem */
-             .details-section p, #personal-info, .details-section .contact-links a {
-                font-size: 0.7rem; /* Adjusted smaller rem for smallest screens */
-            }
         }
     </style>
 </head>
@@ -196,19 +236,21 @@
                 <p id="ticker-intro">FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN</p>
                 <div id="game-minutes-big">00</div>
                 <p id="ticker-unit">MINUTES</p>
-                <p id="ticker-seconds">AND 00 FUCKING SECONDS</p>
-            </div>
+                <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p> </div>
             <p id="half-time-message"> </p>
-        </main>
 
-        <section class="details-section">
-            <p class="contact-links">
+            <div id="custom-term-section">
+                <p id="custom-term-explainer">* example: 2019 election (12 dec 2019) to 2024 election (4 jul 2024) was ~4.56 years. enter ur own term length below etc etc</p>
+                <input type="number" id="term-length-input" value="4.0" step="0.1" min="0.1" aria-label="Custom term length in years">
+            </div>
+
+        </main> <section class="details-section">
+             <p class="contact-links">
                 <a href="https://www.google.com/search?q=niyi+rapper+cambridge" target="_blank" rel="noopener noreferrer">when i was rly cool: niyi rapper cambridge</a>
                 <a href="https://www.youtube.com/watch?v=6NO3vfTilBA" target="_blank" rel="noopener noreferrer">when i was rly nervous: TEDx Talk</a>
                 <a href="mailto:spam@niyi.co.uk">pls dont spam me: spam@niyi.co.uk</a>
             </p>
-            <p id="personal-info">adeniyi adeyemi adelakun BA, MPhil, MA (cantab) • currently PhD
-                 researching childish things @ university of cambridge • vice president, dobson society, st john's college</p>
+            <p id="personal-info">adeniyi adeyemi adelakun ba, mphil, ma (cantab) • currently phd researching childish things @ university of cambridge • vice president, dobson society, st john's college</p>
         </section>
 
         <footer>
@@ -219,8 +261,9 @@
     <script>
         // --- Configuration ---
         const governmentStartDate = new Date("2024-07-05T00:00:00Z");
-        const totalTermYears = 4.56;
+        // REMOVED: const totalTermYears = 4; // This will now come from the input
         const footballMatchDurationMinutes = 90;
+        const DEFAULT_TERM_YEARS = 4.0; // Default value if input is invalid
 
         // --- DOM Elements ---
         const tickerIntroElement = document.getElementById('ticker-intro');
@@ -229,6 +272,7 @@
         const tickerSecondsElement = document.getElementById('ticker-seconds');
         const halfTimeMessageElement = document.getElementById('half-time-message');
         const currentYearElement = document.getElementById('current-year');
+        const termLengthInputElement = document.getElementById('term-length-input'); // Get the input element
 
         function setInitialInfo() {
             if (currentYearElement) {
@@ -241,8 +285,12 @@
                 tickerUnitElement.textContent = "MINUTES";
             }
             if (tickerSecondsElement) {
-                tickerSecondsElement.textContent = "AND 00 FUCKING SECONDS";
+                tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>"; // Include asterisk here initially
             }
+            // Set initial value in input box (already set in HTML, but good practice)
+             if (termLengthInputElement) {
+                 termLengthInputElement.value = DEFAULT_TERM_YEARS.toFixed(1); // Ensure decimal display
+             }
         }
 
         function updateTicker() {
@@ -250,8 +298,22 @@
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
             if (elapsedMilliseconds < 0) elapsedMilliseconds = 0;
 
-            const totalTermMilliseconds = totalTermYears * 365.25 * 24 * 60 * 60 * 1000;
-            const fractionOfTermElapsed = elapsedMilliseconds / totalTermMilliseconds;
+            // --- Get custom term length ---
+            let currentTermYears = DEFAULT_TERM_YEARS; // Start with default
+            if (termLengthInputElement) {
+                const inputValue = parseFloat(termLengthInputElement.value);
+                // Use input value only if it's a valid positive number
+                if (!isNaN(inputValue) && inputValue > 0) {
+                    currentTermYears = inputValue;
+                } else {
+                    // Optional: Visually reset invalid input back to default?
+                    // termLengthInputElement.value = DEFAULT_TERM_YEARS.toFixed(1);
+                }
+            }
+            // --- Use currentTermYears for calculation ---
+            const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
+
+            const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0; // Avoid division by zero
             let matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
 
             let gameMinutes = Math.floor(matchTimeTotalMinutes);
@@ -271,7 +333,8 @@
                     tickerUnitElement.textContent = "MINUTES.";
                 }
                 if (tickerSecondsElement) {
-                    tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.";
+                    // Added FUCKING, period, and asterisk span
+                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.<span class=\"term-explainer-asterisk\">*</span>";
                 }
                 if (halfTimeMessageElement) {
                     halfTimeMessageElement.textContent = "FINAL WHISTLE!";
@@ -287,7 +350,8 @@
                     tickerUnitElement.textContent = "MINUTES";
                 }
                 if (tickerSecondsElement) {
-                    tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS";
+                    // Added FUCKING and asterisk span
+                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
                 }
                 if (halfTimeMessageElement) {
                     halfTimeMessageElement.innerHTML = " ";
@@ -297,8 +361,17 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             setInitialInfo();
-            updateTicker();
-            setInterval(updateTicker, 1000);
+            updateTicker(); // Initial call
+            const intervalId = setInterval(updateTicker, 1000); // Keep interval running
+
+            // Add event listener to the input box
+            if (termLengthInputElement) {
+                termLengthInputElement.addEventListener('input', function() {
+                    // When input changes, immediately update the ticker display
+                    // No need to restart interval, updateTicker reads current value
+                    updateTicker();
+                });
+            }
         });
     </script>
 </body>
