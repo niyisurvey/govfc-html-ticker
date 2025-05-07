@@ -29,7 +29,7 @@
         #intro-question {
             font-style: italic;
             font-size: 1.4em;
-            color: #88c0d0;
+            color: #88c0d0; 
             margin-bottom: 30px;
             line-height: 1.4;
         }
@@ -60,18 +60,17 @@
 
         #ticker-unit { /* For "MINUTES" */
             font-size: 2.2em;
-            color: #b0b0b0;
+            color: #b0b0b0; 
             margin: 0;
             font-weight: bold;
             line-height: 1.2;
-            margin-top: -0.1em;
+            margin-top: -0.1em; 
         }
 
         #ticker-seconds { /* For "AND XXX FUCKING SECONDS" */
-            /* Using 1.5em size and white color from user's last request before this one */
-            font-size: 1.5em;
-            color: #FFFFFF;
-            margin: 5px 0 0 0;
+            font-size: 1.5em;  
+            color: #FFFFFF;   
+            margin: 5px 0 0 0; 
             font-weight: bold;
             line-height: 1.2;
         }
@@ -96,27 +95,26 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* Style for paragraphs within details-section that AREN'T contact links or personal info */
-        .details-section p {
-            font-size: 0.8em;
-            line-height: 1.5;
-            margin-bottom: 8px;
-            color: #707070; /* Default dim color */
+        /* General P applies unless overridden */
+        .details-section p { 
+            font-size: 0.8em; 
+            line-height: 1.5; 
+            margin-bottom: 8px; 
+            color: #707070; 
         }
 
-        .details-section .contact-links {
-             /* Style specifically for the links paragraph if needed, inherits p otherwise */
-            margin-top: 8px;
-            margin-bottom: 8px; /* Ensure spacing */
+        .details-section .contact-links { 
+            margin-top: 8px; 
+            margin-bottom: 8px; 
         }
         .details-section .contact-links a {
-            color: #5c7a8c; /* Link color */
+            color: #5c7a8c; 
             text-decoration: none;
             margin: 0 8px;
-            font-size: 0.8em; /* Same base size */
+            font-size: 0.8em; /* Base size for links */
             display: inline-block;
             margin-bottom: 5px;
-            line-height: 1.5;
+            line-height: 1.5; 
         }
         .details-section .contact-links a:hover {
             text-decoration: underline;
@@ -124,12 +122,11 @@
         }
          /* Style for the personal info line */
         #personal-info {
-            font-size: 0.8em; /* Same size as links */
+            font-size: 0.8em; /* Explicitly making same size as links */
             color: #aaaaaa; /* Different color - brighter grey */
-            line-height: 1.5;
-            margin-bottom: 8px;
+            line-height: 1.5; 
+            margin-bottom: 8px; 
         }
-
 
         /* Footer */
         footer {
@@ -141,17 +138,17 @@
             margin-bottom: 3px;
         }
 
-        /* Responsive adjustments (incorporating changes for #ticker-seconds if its base size changed) */
+        /* Responsive adjustments */
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
             #ticker-unit { font-size: 2em; }
-            #ticker-seconds { font-size: 1.3em; } /* Matches intro */
+            #ticker-seconds { font-size: 1.3em; } 
             #intro-question { font-size: 1.3em; }
         }
         @media (max-width: 900px) {
              #game-minutes-big { font-size: 15em; }
              #ticker-unit { font-size: 1.8em; }
-             #ticker-seconds { font-size: 1.3em; } /* Matches intro */
+             #ticker-seconds { font-size: 1.3em; } 
              #ticker-intro { font-size: 1.3em; }
              #intro-question { font-size: 1.2em; }
         }
@@ -159,7 +156,7 @@
             #ticker-intro { font-size: 1.2em; }
             #game-minutes-big { font-size: 12em; }
             #ticker-unit { font-size: 1.6em; }
-            #ticker-seconds { font-size: 1.2em; } /* Matches intro */
+            #ticker-seconds { font-size: 1.2em; } 
             #half-time-message { font-size: 1.2em; }
             #intro-question { font-size: 1.1em; }
         }
@@ -167,16 +164,17 @@
             #ticker-intro { font-size: 1em; }
             #game-minutes-big { font-size: 9em; }
             #ticker-unit { font-size: 1.4em; }
-            #ticker-seconds { font-size: 1em; } /* Matches intro */
+            #ticker-seconds { font-size: 1em; } 
             #intro-question { font-size: 1em; }
-            .details-section p, #personal-info, .details-section .contact-links a { /* Unified small size */
+            /* Unified size for small screens */
+            .details-section p, #personal-info, .details-section .contact-links a { 
                 font-size: 0.75em;
             }
         }
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
              #ticker-unit { font-size: 1.2em; }
-             #ticker-seconds { font-size: 0.9em; } /* Matches intro */
+             #ticker-seconds { font-size: 0.9em; } 
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 0.9em; }
         }
@@ -202,7 +200,7 @@
                 <a href="https://www.youtube.com/watch?v=6NO3vfTilBA" target="_blank" rel="noopener noreferrer">when i was rly nervous: TEDx Talk</a>
                 <a href="mailto:spam@niyi.co.uk">pls dont spam me: spam@niyi.co.uk</a>
             </p>
-            <p id="personal-info">Adeniyi Adeyemi Adelakun BA, MPhil, MA (cantab) • Currently PhD researching childish things @ University of Cambridge • Vice President, Dobson Society, St John's College</p>
+            <p id="personal-info">adeniyi adeyemi adelakun ba, mphil, ma (cantab) • currently phd researching childish things @ university of cambridge • vice president, dobson society, st john's college</p>
         </section>
 
         <footer>
@@ -234,8 +232,7 @@
             if (tickerUnitElement) {
                 tickerUnitElement.textContent = "MINUTES";
             }
-            if (tickerSecondsElement) {
-                // Updated initial text
+            if (tickerSecondsElement) { 
                 tickerSecondsElement.textContent = "AND 00 FUCKING SECONDS";
             }
         }
@@ -254,7 +251,7 @@
 
             if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
-                gameSeconds = 0;
+                gameSeconds = 0; 
 
                 if (tickerIntroElement) {
                     tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
@@ -265,8 +262,7 @@
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES.";
                 }
-                if (tickerSecondsElement) {
-                    // Updated full-time seconds text
+                if (tickerSecondsElement) { 
                     tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.";
                 }
                 if (halfTimeMessageElement) {
@@ -282,8 +278,7 @@
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES";
                 }
-                if (tickerSecondsElement) {
-                    // Updated regular seconds text
+                if (tickerSecondsElement) { 
                     tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS";
                 }
                 if (halfTimeMessageElement) {
