@@ -26,11 +26,10 @@
             max-width: 95%;
         }
 
-        /* Updated Intro Question Styling */
         #intro-question {
             font-style: italic;
             font-size: 1.4em;
-            color: #88c0d0; /* New distinct color (muted blue-cyan) */
+            color: #88c0d0; 
             margin-bottom: 30px;
             line-height: 1.4;
         }
@@ -59,13 +58,21 @@
             padding: 0;
         }
 
-        #ticker-unit {
+        #ticker-unit { /* For "MINUTES" */
             font-size: 2.2em;
             color: #b0b0b0;
             margin: 0;
             font-weight: bold;
             line-height: 1.2;
-            margin-top: -0.1em;
+            margin-top: -0.1em; /* Nudge it up slightly */
+        }
+
+        #ticker-seconds { /* For "AND XXX SECONDS" */
+            font-size: 1.8em; /* Slightly smaller than "MINUTES" */
+            color: #b0b0b0; /* Same color as intro and unit */
+            margin: 2px 0 0 0; /* Small top margin, no bottom margin */
+            font-weight: bold;
+            line-height: 1.2;
         }
 
         #half-time-message {
@@ -88,32 +95,24 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        .details-section h2 {
-            font-size: 0.9em;
-            color: #505050;
-            margin-bottom: 10px;
-            font-weight: normal;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .details-section p {
+        .details-section p { /* General P for the one info line */
             font-size: 0.8em;
-            line-height: 1.5;
-            margin-bottom: 8px;
+            line-height: 1.5; 
+            margin-bottom: 8px; 
             color: #707070;
         }
 
-        .details-section .contact-links {
-            margin-top: 8px;
+        .details-section .contact-links { /* This is also a P tag, so inherits above then overrides */
+            margin-top: 8px; 
         }
         .details-section .contact-links a {
             color: #5c7a8c;
             text-decoration: none;
             margin: 0 8px;
-            font-size: 0.8em;
+            font-size: 0.8em; 
             display: inline-block;
             margin-bottom: 5px;
-            line-height: 1.5;
+            line-height: 1.5; 
         }
         .details-section .contact-links a:hover {
             text-decoration: underline;
@@ -134,11 +133,13 @@
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
             #ticker-unit { font-size: 2em; }
+            #ticker-seconds { font-size: 1.6em; }
             #intro-question { font-size: 1.3em; }
         }
         @media (max-width: 900px) {
              #game-minutes-big { font-size: 15em; }
              #ticker-unit { font-size: 1.8em; }
+             #ticker-seconds { font-size: 1.4em; }
              #ticker-intro { font-size: 1.3em; }
              #intro-question { font-size: 1.2em; }
         }
@@ -146,6 +147,7 @@
             #ticker-intro { font-size: 1.2em; }
             #game-minutes-big { font-size: 12em; }
             #ticker-unit { font-size: 1.6em; }
+            #ticker-seconds { font-size: 1.2em; }
             #half-time-message { font-size: 1.2em; }
             #intro-question { font-size: 1.1em; }
         }
@@ -153,6 +155,7 @@
             #ticker-intro { font-size: 1em; }
             #game-minutes-big { font-size: 9em; }
             #ticker-unit { font-size: 1.4em; }
+            #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1em; }
             .details-section p, .details-section .contact-links a {
                 font-size: 0.75em;
@@ -161,6 +164,7 @@
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
              #ticker-unit { font-size: 1.2em; }
+             #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 0.9em; }
         }
@@ -175,11 +179,12 @@
                 <p id="ticker-intro">FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN</p>
                 <div id="game-minutes-big">00</div>
                 <p id="ticker-unit">MINUTES</p>
-            </div>
+                <p id="ticker-seconds">AND 00 SECONDS</p> </div>
             <p id="half-time-message"> </p>
         </main>
 
         <section class="details-section">
+            <p>Adeniyi Adeyemi Adelakun BA, MPhil, MA (cantab) • Currently PhD researching childish things @ University of Cambridge • Vice President, Dobson Society, St John's College</p>
             <p class="contact-links">
                 <a href="https://www.google.com/search?q=niyi+rapper+cambridge" target="_blank" rel="noopener noreferrer">when i was rly cool: niyi rapper cambridge</a>
                 <a href="https://www.youtube.com/watch?v=6NO3vfTilBA" target="_blank" rel="noopener noreferrer">when i was rly nervous: TEDx Talk</a>
@@ -202,6 +207,7 @@
         const tickerIntroElement = document.getElementById('ticker-intro');
         const gameMinutesBigElement = document.getElementById('game-minutes-big');
         const tickerUnitElement = document.getElementById('ticker-unit');
+        const tickerSecondsElement = document.getElementById('ticker-seconds'); // New DOM element
         const halfTimeMessageElement = document.getElementById('half-time-message');
         const currentYearElement = document.getElementById('current-year');
 
@@ -210,10 +216,14 @@
                 currentYearElement.textContent = new Date().getFullYear();
             }
             if (tickerIntroElement) {
+                // Using text from user's last provided code
                 tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
             }
             if (tickerUnitElement) {
                 tickerUnitElement.textContent = "MINUTES";
+            }
+            if (tickerSecondsElement) { // Set initial seconds text
+                tickerSecondsElement.textContent = "AND 00 SECONDS";
             }
         }
 
@@ -227,9 +237,11 @@
             let matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
 
             let gameMinutes = Math.floor(matchTimeTotalMinutes);
+            let gameSeconds = Math.floor((matchTimeTotalMinutes - gameMinutes) * 60);
 
             if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
+                gameSeconds = 0; // Seconds are 0 at full time
 
                 if (tickerIntroElement) {
                     tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
@@ -239,6 +251,9 @@
                 }
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES.";
+                }
+                if (tickerSecondsElement) { // Update seconds display for full time
+                    tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " SECONDS.";
                 }
                 if (halfTimeMessageElement) {
                     halfTimeMessageElement.textContent = "FINAL WHISTLE!";
@@ -252,6 +267,9 @@
                 }
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES";
+                }
+                if (tickerSecondsElement) { // Update seconds display regularly
+                    tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " SECONDS";
                 }
                 if (halfTimeMessageElement) {
                     halfTimeMessageElement.innerHTML = " ";
