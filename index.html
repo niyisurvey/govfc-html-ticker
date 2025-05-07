@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Political Clock Is Ticking...</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 95%;
+        }
+
+        /* Updated Intro Question Styling */
+        #intro-question {
+            font-style: italic;
+            font-size: 1.4em;
+            color: #88c0d0; /* New distinct color (muted blue-cyan) */
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        /* Ticker Area Styling */
+        .ticker-wrapper {
+            margin: 10px 0;
+        }
+
+        #ticker-intro {
+            font-size: 1.5em;
+            color: #b0b0b0;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        #game-minutes-big {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 20em;
+            color: #FFFFFF;
+            line-height: 0.9;
+            font-weight: bold;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        #ticker-unit {
+            font-size: 2.2em;
+            color: #b0b0b0;
+            margin: 0;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-top: -0.1em;
+        }
+
+        #half-time-message {
+            font-size: 1.4em;
+            color: #FFEB3B;
+            min-height: 1.5em;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* "Super Discreet" Personal Details Section */
+        .details-section {
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .details-section h2 {
+            font-size: 0.9em;
+            color: #505050;
+            margin-bottom: 10px;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .details-section p {
+            font-size: 0.8em;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            color: #707070;
+        }
+
+        .details-section .contact-links {
+            margin-top: 8px;
+        }
+        .details-section .contact-links a {
+            color: #5c7a8c;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        .details-section .contact-links a:hover {
+            text-decoration: underline;
+            color: #79aacc;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            font-size: 0.7em;
+            color: #454545;
+        }
+        footer p {
+            margin-bottom: 3px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            #game-minutes-big { font-size: 18em; }
+            #ticker-unit { font-size: 2em; }
+            #intro-question { font-size: 1.3em; }
+        }
+        @media (max-width: 900px) {
+             #game-minutes-big { font-size: 15em; }
+             #ticker-unit { font-size: 1.8em; }
+             #ticker-intro { font-size: 1.3em; }
+             #intro-question { font-size: 1.2em; }
+        }
+        @media (max-width: 700px) {
+            #ticker-intro { font-size: 1.2em; }
+            #game-minutes-big { font-size: 12em; }
+            #ticker-unit { font-size: 1.6em; }
+            #half-time-message { font-size: 1.2em; }
+            #intro-question { font-size: 1.1em; }
+        }
+        @media (max-width: 500px) {
+            #ticker-intro { font-size: 1em; }
+            #game-minutes-big { font-size: 9em; }
+            #ticker-unit { font-size: 1.4em; }
+            #intro-question { font-size: 1em; }
+            .details-section p, .details-section .contact-links a {
+                font-size: 0.75em;
+            }
+        }
+        @media (max-width: 380px) {
+             #game-minutes-big { font-size: 7em; }
+             #ticker-unit { font-size: 1.2em; }
+             #ticker-intro { font-size: 0.9em; }
+             #intro-question { font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <p id="intro-question">If a parliamentary term was a football match, how long have Labour been in power?</p>
+
+            <div class="ticker-wrapper">
+                <p id="ticker-intro">FFS IT'S ONLY FUCKING BEEN</p>
+                <div id="game-minutes-big">00</div>
+                <p id="ticker-unit">MINUTES</p>
+            </div>
+            <p id="half-time-message"> </p>
+        </main>
+
+        <section class="details-section">
+            <p>Adeniyi Adeyemi Adelakun BA, MPhil, MA (cantab) • Currently PhD researching childish things @ University of Cambridge • Vice President, Dobson Society, St John's College</p>
+            <p class="contact-links">
+                <a href="https://www.youtube.com/watch?v=6NO3vfTilBA" target="_blank" rel="noopener noreferrer">when i was rly nervous: TEDx Talk</a>
+                <a href="http://www.iheartniyi.com" target="_blank" rel="noopener noreferrer">probably doens't work: iheartniyi.com</a>
+                <a href="mailto:spam@niyi.co.uk">pls dont spam me: spam@niyi.co.uk</a>
+            </p>
+        </section>
+
+        <footer>
+            <p>© <span id="current-year"></span> govfc.co.uk - if it even resolves.</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const governmentStartDate = new Date("2024-07-05T00:00:00Z");
+        const totalTermYears = 5;
+        const footballMatchDurationMinutes = 90;
+
+        // --- DOM Elements ---
+        const tickerIntroElement = document.getElementById('ticker-intro');
+        const gameMinutesBigElement = document.getElementById('game-minutes-big');
+        const tickerUnitElement = document.getElementById('ticker-unit');
+        const halfTimeMessageElement = document.getElementById('half-time-message');
+        const currentYearElement = document.getElementById('current-year');
+
+        function setInitialInfo() {
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+            if (tickerIntroElement) {
+                tickerIntroElement.textContent = "FFS IT'S ONLY FUCKING BEEN";
+            }
+            if (tickerUnitElement) {
+                tickerUnitElement.textContent = "MINUTES";
+            }
+        }
+
+        function updateTicker() {
+            const now = new Date();
+            let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
+            if (elapsedMilliseconds < 0) elapsedMilliseconds = 0;
+
+            const totalTermMilliseconds = totalTermYears * 365.25 * 24 * 60 * 60 * 1000;
+            const fractionOfTermElapsed = elapsedMilliseconds / totalTermMilliseconds;
+            let matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
+
+            let gameMinutes = Math.floor(matchTimeTotalMinutes);
+
+            if (gameMinutes >= footballMatchDurationMinutes) {
+                gameMinutes = footballMatchDurationMinutes;
+
+                if (tickerIntroElement) {
+                    tickerIntroElement.textContent = "FFS IT'S BEEN A FULL FUCKING";
+                }
+                if (gameMinutesBigElement) {
+                    gameMinutesBigElement.textContent = String(gameMinutes);
+                }
+                if (tickerUnitElement) {
+                    tickerUnitElement.textContent = "MINUTES.";
+                }
+                if (halfTimeMessageElement) {
+                    halfTimeMessageElement.textContent = "FINAL WHISTLE!";
+                }
+            } else {
+                if (tickerIntroElement) {
+                    tickerIntroElement.textContent = "FFS IT'S ONLY FUCKING BEEN";
+                }
+                if (gameMinutesBigElement) {
+                    gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
+                }
+                if (tickerUnitElement) {
+                    tickerUnitElement.textContent = "MINUTES";
+                }
+                if (halfTimeMessageElement) {
+                    halfTimeMessageElement.innerHTML = " ";
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setInitialInfo();
+            updateTicker();
+            setInterval(updateTicker, 1000);
+        });
+    </script>
+</body>
+</html>
