@@ -28,8 +28,8 @@
 
         #intro-question {
             font-style: italic;
-            font-size: 1.4em;
-            color: #88c0d0; 
+            font-size: 1.4em; /* Kept em here, relative to body */
+            color: #88c0d0;
             margin-bottom: 30px;
             line-height: 1.4;
         }
@@ -40,7 +40,7 @@
         }
 
         #ticker-intro {
-            font-size: 1.5em;
+            font-size: 1.5em; /* Kept em here, relative to body */
             color: #b0b0b0;
             margin: 0 0 5px 0;
             font-weight: bold;
@@ -49,7 +49,7 @@
 
         #game-minutes-big {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 20em;
+            font-size: 20em; /* Kept em here, relative to body */
             color: #FFFFFF;
             line-height: 0.9;
             font-weight: bold;
@@ -58,25 +58,25 @@
             padding: 0;
         }
 
-        #ticker-unit { /* For "MINUTES" */
-            font-size: 2.2em;
-            color: #b0b0b0; 
+        #ticker-unit {
+            font-size: 2.2em; /* Kept em here, relative to body */
+            color: #b0b0b0;
             margin: 0;
             font-weight: bold;
             line-height: 1.2;
-            margin-top: -0.1em; 
+            margin-top: -0.1em;
         }
 
-        #ticker-seconds { /* For "AND XXX FUCKING SECONDS" */
-            font-size: 1.5em;  
-            color: #FFFFFF;   
-            margin: 5px 0 0 0; 
+        #ticker-seconds {
+            font-size: 1.5em; /* Kept em here, relative to body */
+            color: #FFFFFF;
+            margin: 5px 0 0 0;
             font-weight: bold;
             line-height: 1.2;
         }
 
         #half-time-message {
-            font-size: 1.4em;
+            font-size: 1.4em; /* Kept em here, relative to body */
             color: #FFEB3B;
             min-height: 1.5em;
             font-weight: bold;
@@ -95,43 +95,46 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* General P applies unless overridden */
-        .details-section p { 
-            font-size: 0.8em; 
-            line-height: 1.5; 
-            margin-bottom: 8px; 
-            color: #707070; 
+        /* General P styling - applies unless overridden */
+        .details-section p {
+            font-size: 0.8rem; /* CHANGED to rem */
+            line-height: 1.5;
+            margin-bottom: 8px;
+            color: #707070;
+            font-weight: normal; /* Ensure normal weight */
         }
 
-        .details-section .contact-links { 
-            margin-top: 8px; 
-            margin-bottom: 8px; 
+        .details-section .contact-links {
+            margin-top: 8px;
+            margin-bottom: 8px;
         }
         .details-section .contact-links a {
-            color: #5c7a8c; 
+            color: #5c7a8c;
             text-decoration: none;
             margin: 0 8px;
-            font-size: 0.8em; /* Base size for links */
+            font-size: 0.8rem; /* CHANGED to rem, same as p and personal-info */
             display: inline-block;
             margin-bottom: 5px;
-            line-height: 1.5; 
+            line-height: 1.5;
+            font-weight: normal; /* Explicitly normal weight */
         }
         .details-section .contact-links a:hover {
             text-decoration: underline;
             color: #79aacc;
         }
-         /* Style for the personal info line */
+        /* Style for the personal info line */
         #personal-info {
-            font-size: 0.8em; /* Explicitly making same size as links */
-            color: #aaaaaa; /* Different color - brighter grey */
-            line-height: 1.5; 
-            margin-bottom: 8px; 
+            font-size: 0.8rem; /* CHANGED to rem, same as links */
+            color: #aaaaaa;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            font-weight: normal; /* Explicitly normal weight */
         }
 
         /* Footer */
         footer {
             margin-top: 30px;
-            font-size: 0.7em;
+            font-size: 0.7em; /* Kept em here, relative to body */
             color: #454545;
         }
         footer p {
@@ -142,13 +145,13 @@
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
             #ticker-unit { font-size: 2em; }
-            #ticker-seconds { font-size: 1.3em; } 
+            #ticker-seconds { font-size: 1.3em; }
             #intro-question { font-size: 1.3em; }
         }
         @media (max-width: 900px) {
              #game-minutes-big { font-size: 15em; }
              #ticker-unit { font-size: 1.8em; }
-             #ticker-seconds { font-size: 1.3em; } 
+             #ticker-seconds { font-size: 1.3em; }
              #ticker-intro { font-size: 1.3em; }
              #intro-question { font-size: 1.2em; }
         }
@@ -156,7 +159,7 @@
             #ticker-intro { font-size: 1.2em; }
             #game-minutes-big { font-size: 12em; }
             #ticker-unit { font-size: 1.6em; }
-            #ticker-seconds { font-size: 1.2em; } 
+            #ticker-seconds { font-size: 1.2em; }
             #half-time-message { font-size: 1.2em; }
             #intro-question { font-size: 1.1em; }
         }
@@ -164,19 +167,23 @@
             #ticker-intro { font-size: 1em; }
             #game-minutes-big { font-size: 9em; }
             #ticker-unit { font-size: 1.4em; }
-            #ticker-seconds { font-size: 1em; } 
+            #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1em; }
-            /* Unified size for small screens */
-            .details-section p, #personal-info, .details-section .contact-links a { 
-                font-size: 0.75em;
+            /* Unified small size using rem */
+            .details-section p, #personal-info, .details-section .contact-links a {
+                font-size: 0.75rem; /* CHANGED to rem */
             }
         }
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
              #ticker-unit { font-size: 1.2em; }
-             #ticker-seconds { font-size: 0.9em; } 
+             #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 0.9em; }
+             /* Unified extra-small size using rem */
+             .details-section p, #personal-info, .details-section .contact-links a {
+                font-size: 0.7rem; /* Adjusted smaller rem for smallest screens */
+            }
         }
     </style>
 </head>
@@ -232,7 +239,7 @@
             if (tickerUnitElement) {
                 tickerUnitElement.textContent = "MINUTES";
             }
-            if (tickerSecondsElement) { 
+            if (tickerSecondsElement) {
                 tickerSecondsElement.textContent = "AND 00 FUCKING SECONDS";
             }
         }
@@ -251,7 +258,7 @@
 
             if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
-                gameSeconds = 0; 
+                gameSeconds = 0;
 
                 if (tickerIntroElement) {
                     tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
@@ -262,7 +269,7 @@
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES.";
                 }
-                if (tickerSecondsElement) { 
+                if (tickerSecondsElement) {
                     tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.";
                 }
                 if (halfTimeMessageElement) {
@@ -278,7 +285,7 @@
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES";
                 }
-                if (tickerSecondsElement) { 
+                if (tickerSecondsElement) {
                     tickerSecondsElement.textContent = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS";
                 }
                 if (halfTimeMessageElement) {
