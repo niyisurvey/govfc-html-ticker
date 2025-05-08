@@ -15,7 +15,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 10px;
+            padding: 0; /* MODIFIED: Changed from 10px to 0px to remove top/side/bottom body padding */
             box-sizing: border-box;
             text-align: center;
             overflow-x: hidden;
@@ -23,7 +23,7 @@
 
         .container {
             width: 100%;
-            max-width: 95%;
+            max-width: 95%; /* This will provide side margins once body padding is removed */
         }
 
         #intro-question {
