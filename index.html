@@ -28,7 +28,7 @@
 
         #intro-question {
             font-style: italic;
-            font-size: 1.6em;
+            font-size: 1.6em;  /* Bigger as requested */
             color: #88c0d0;
             margin-bottom: 30px;
             line-height: 1.4;
@@ -101,8 +101,8 @@
             padding-top: 20px;
         }
 
-        #custom-term-explainer { /* Base size for Explainer and Links */
-            font-size: 0.8em;
+        #custom-term-explainer {
+            font-size: 0.8em; /* Base size for explainer/links */
             color: #aaaaaa;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -136,13 +136,16 @@
         .details-section {
             background-color: transparent;
             padding: 10px;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
             margin-top: 30px;
             margin-bottom: 20px;
             text-align: center;
         }
-        /* Default p style in this section */
+        /* Default P in this section */
         .details-section p {
-            font-size: 0.8em; /* Default size */
+            font-size: 0.8em; /* Default base size for this section */
             line-height: 1.5;
             margin-bottom: 8px;
             color: #707070;
@@ -156,28 +159,29 @@
             color: #5c7a8c;
             text-decoration: none;
             margin: 0 8px;
-            font-size: inherit; /* Inherit size from parent P (0.8em) */
+            font-size: 0.8em; /* Links size */
             display: inline-block;
             margin-bottom: 5px;
-            line-height: inherit; /* Inherit line-height */
+            line-height: 1.5;
         }
         .details-section .contact-links a:hover {
             text-decoration: underline;
             color: #79aacc;
         }
 
-         /* Style for the personal info line - OVERRIDE the default P size */
+         /* Style for the personal info line */
         #personal-info {
-            font-size: 0.7em; /* Explicitly smaller than links/explainer */
+            font-size: 0.65em; /* Changed: Made DRASTICALLY smaller */
             color: #aaaaaa;
-            line-height: 1.4; /* Slightly tighter maybe */
+            line-height: 1.4; /* Slightly tighter line height for smaller text */
+            margin-bottom: 8px;
         }
 
 
         /* Footer */
         footer {
             margin-top: 30px;
-            font-size: 0.7em; /* Footer is smallest */
+            font-size: 0.7em; /* Footer base size */
             color: #454545;
         }
         footer p {
@@ -212,10 +216,9 @@
             #ticker-unit { font-size: 1.4em; }
             #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1.1em; }
-             /* Set base size for small text */
             #custom-term-explainer { font-size: 0.75em; }
             .details-section .contact-links a { font-size: 0.75em; } /* Links */
-            #personal-info { font-size: 0.65em; } /* Explicitly smaller */
+            #personal-info { font-size: 0.65em; } /* Adjusted - noticeably smaller than links */
         }
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
@@ -223,10 +226,7 @@
              #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 1em; }
-             /* Keep hierarchy on smallest screens */
-             #custom-term-explainer { font-size: 0.70em; }
-             .details-section .contact-links a { font-size: 0.70em; }
-             #personal-info { font-size: 0.60em; }
+             #personal-info { font-size: 0.6em; } /* Adjusted */
         }
     </style>
 </head>
@@ -258,7 +258,8 @@
             </p>
             <p id="personal-info">adeniyi adeyemi adelakun ba, mphil, ma (cantab) • currently phd researching childish things @ university of cambridge • vice president, dobson society, st john's college</p>
         </section>
-
+    
+        <p class="details-section">this is a personal project. it is not affiliated with any political party or organisation.</p>
         <footer>
             <p>© <span id="current-year"></span> govfc.co.uk - if it even resolves.</p>
         </footer>
