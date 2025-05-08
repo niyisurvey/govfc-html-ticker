@@ -26,11 +26,10 @@
             max-width: 95%;
         }
 
-        /* Updated Intro Question Styling */
         #intro-question {
             font-style: italic;
-            font-size: 1.6em;  /* Increased size */
-            color: #88c0d0; 
+            font-size: 1.6em;  /* Bigger as requested */
+            color: #88c0d0;
             margin-bottom: 30px;
             line-height: 1.4;
         }
@@ -61,27 +60,27 @@
 
         #ticker-unit { /* For "MINUTES" */
             font-size: 2.2em;
-            color: #b0b0b0; 
+            color: #b0b0b0;
             margin: 0;
             font-weight: bold;
             line-height: 1.2;
-            margin-top: -0.1em; 
+            margin-top: -0.1em;
         }
 
         #ticker-seconds { /* For "AND XXX FUCKING SECONDS" */
-            font-size: 1.5em;  
-            color: #FFFFFF;   
-            margin: 5px 0 0 0; 
+            font-size: 1.5em;
+            color: #FFFFFF;
+            margin: 5px 0 0 0;
             font-weight: bold;
             line-height: 1.2;
         }
-        .term-explainer-asterisk { 
+        .term-explainer-asterisk {
             font-size: 0.8em;
             vertical-align: super;
             margin-left: 2px;
-            color: #aaaaaa; 
-            font-style: normal; 
-            font-weight: normal; 
+            color: #aaaaaa;
+            font-style: normal;
+            font-weight: normal;
         }
 
 
@@ -98,16 +97,16 @@
         #custom-term-section {
             margin-top: 20px;
             margin-bottom: 40px;
-            border-top: 1px solid #2a2a2a; 
+            border-top: 1px solid #2a2a2a;
             padding-top: 20px;
         }
 
         #custom-term-explainer {
             font-size: 0.8em; /* Base size for explainer/links */
-            color: #aaaaaa; 
+            color: #aaaaaa;
             line-height: 1.5;
             margin-bottom: 15px;
-            text-transform: lowercase; 
+            text-transform: lowercase;
             max-width: 450px;
             margin-left: auto;
             margin-right: auto;
@@ -129,7 +128,7 @@
           margin: 0;
         }
         #term-length-input[type=number] {
-          -moz-appearance: textfield; 
+          -moz-appearance: textfield;
         }
 
 
@@ -144,44 +143,45 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* Default P in this section (if any others were added) */
-        .details-section p { 
-            font-size: 0.8em; /* Base size */
-            line-height: 1.5; 
-            margin-bottom: 8px; 
-            color: #707070; 
+        /* Default P in this section */
+        .details-section p {
+            font-size: 0.8em; /* Default base size for this section */
+            line-height: 1.5;
+            margin-bottom: 8px;
+            color: #707070;
         }
 
-        .details-section .contact-links { 
-            margin-top: 8px; 
-            margin-bottom: 8px; 
+        .details-section .contact-links {
+            margin-top: 8px;
+            margin-bottom: 8px;
         }
         .details-section .contact-links a {
-            color: #5c7a8c; 
+            color: #5c7a8c;
             text-decoration: none;
             margin: 0 8px;
-            font-size: 0.8em; /* Base size for links */
+            font-size: 0.8em; /* Links size */
             display: inline-block;
             margin-bottom: 5px;
-            line-height: 1.5; 
+            line-height: 1.5;
         }
         .details-section .contact-links a:hover {
             text-decoration: underline;
             color: #79aacc;
         }
+
          /* Style for the personal info line */
         #personal-info {
-            font-size: 0.75em; /* Changed: Made explicitly smaller than links */
-            color: #aaaaaa; 
-            line-height: 1.5; 
-            margin-bottom: 8px; 
+            font-size: 0.65em; /* Changed: Made DRASTICALLY smaller */
+            color: #aaaaaa;
+            line-height: 1.4; /* Slightly tighter line height for smaller text */
+            margin-bottom: 8px;
         }
 
 
         /* Footer */
         footer {
             margin-top: 30px;
-            font-size: 0.7em;
+            font-size: 0.7em; /* Footer base size */
             color: #454545;
         }
         footer p {
@@ -192,41 +192,41 @@
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
             #ticker-unit { font-size: 2em; }
-            #ticker-seconds { font-size: 1.3em; } 
-            #intro-question { font-size: 1.5em; } /* Adjusted */
+            #ticker-seconds { font-size: 1.3em; }
+            #intro-question { font-size: 1.5em; }
         }
         @media (max-width: 900px) {
              #game-minutes-big { font-size: 15em; }
              #ticker-unit { font-size: 1.8em; }
-             #ticker-seconds { font-size: 1.3em; } 
+             #ticker-seconds { font-size: 1.3em; }
              #ticker-intro { font-size: 1.3em; }
-             #intro-question { font-size: 1.4em; } /* Adjusted */
+             #intro-question { font-size: 1.4em; }
         }
         @media (max-width: 700px) {
             #ticker-intro { font-size: 1.2em; }
             #game-minutes-big { font-size: 12em; }
             #ticker-unit { font-size: 1.6em; }
-            #ticker-seconds { font-size: 1.2em; } 
+            #ticker-seconds { font-size: 1.2em; }
             #half-time-message { font-size: 1.2em; }
-            #intro-question { font-size: 1.2em; } /* Adjusted */
+            #intro-question { font-size: 1.2em; }
         }
         @media (max-width: 500px) {
             #ticker-intro { font-size: 1em; }
             #game-minutes-big { font-size: 9em; }
             #ticker-unit { font-size: 1.4em; }
-            #ticker-seconds { font-size: 1em; } 
-            #intro-question { font-size: 1.1em; } /* Adjusted */
-            #custom-term-explainer { font-size: 0.75em; } 
-            .details-section .contact-links a { font-size: 0.75em;} /* Links */
-            #personal-info { font-size: 0.7em; } /* Adjusted - now smaller than links */
+            #ticker-seconds { font-size: 1em; }
+            #intro-question { font-size: 1.1em; }
+            #custom-term-explainer { font-size: 0.75em; }
+            .details-section .contact-links a { font-size: 0.75em; } /* Links */
+            #personal-info { font-size: 0.65em; } /* Adjusted - noticeably smaller than links */
         }
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
              #ticker-unit { font-size: 1.2em; }
-             #ticker-seconds { font-size: 0.9em; } 
+             #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
-             #intro-question { font-size: 1em; } /* Adjusted */
-             #personal-info { font-size: 0.65em; } /* Adjusted */
+             #intro-question { font-size: 1em; }
+             #personal-info { font-size: 0.6em; } /* Adjusted */
         }
     </style>
 </head>
@@ -268,7 +268,7 @@
         // --- Configuration ---
         const governmentStartDate = new Date("2024-07-05T00:00:00Z");
         const footballMatchDurationMinutes = 90;
-        const DEFAULT_TERM_YEARS = 4.56; 
+        const DEFAULT_TERM_YEARS = 4.56;
 
         // --- DOM Elements ---
         const tickerIntroElement = document.getElementById('ticker-intro');
@@ -277,7 +277,7 @@
         const tickerSecondsElement = document.getElementById('ticker-seconds');
         const halfTimeMessageElement = document.getElementById('half-time-message');
         const currentYearElement = document.getElementById('current-year');
-        const termLengthInputElement = document.getElementById('term-length-input'); 
+        const termLengthInputElement = document.getElementById('term-length-input');
 
         function setInitialInfo() {
             if (currentYearElement) {
@@ -289,11 +289,11 @@
             if (tickerUnitElement) {
                 tickerUnitElement.textContent = "MINUTES";
             }
-            if (tickerSecondsElement) { 
-                tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>"; 
+            if (tickerSecondsElement) {
+                tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
             }
              if (termLengthInputElement) {
-                 termLengthInputElement.value = DEFAULT_TERM_YEARS.toFixed(2); 
+                 termLengthInputElement.value = DEFAULT_TERM_YEARS.toFixed(2);
              }
         }
 
@@ -302,16 +302,16 @@
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
             if (elapsedMilliseconds < 0) elapsedMilliseconds = 0;
 
-            let currentTermYears = DEFAULT_TERM_YEARS; 
+            let currentTermYears = DEFAULT_TERM_YEARS;
             if (termLengthInputElement) {
                 const inputValue = parseFloat(termLengthInputElement.value);
                 if (!isNaN(inputValue) && inputValue > 0) {
                     currentTermYears = inputValue;
-                } 
+                }
             }
             const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
-            const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0; 
+            const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0;
             let matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
 
             let gameMinutes = Math.floor(matchTimeTotalMinutes);
@@ -319,7 +319,7 @@
 
             if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
-                gameSeconds = 0; 
+                gameSeconds = 0;
 
                 if (tickerIntroElement) {
                     tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
@@ -330,7 +330,7 @@
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES.";
                 }
-                if (tickerSecondsElement) { 
+                if (tickerSecondsElement) {
                     tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.<span class=\"term-explainer-asterisk\">*</span>";
                 }
                 if (halfTimeMessageElement) {
@@ -346,7 +346,7 @@
                 if (tickerUnitElement) {
                     tickerUnitElement.textContent = "MINUTES";
                 }
-                if (tickerSecondsElement) { 
+                if (tickerSecondsElement) {
                     tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
                 }
                 if (halfTimeMessageElement) {
@@ -357,12 +357,12 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             setInitialInfo();
-            updateTicker(); 
-            const intervalId = setInterval(updateTicker, 1000); 
+            updateTicker();
+            const intervalId = setInterval(updateTicker, 1000);
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', function() {
-                    updateTicker(); 
+                    updateTicker();
                 });
             }
         });
