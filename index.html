@@ -28,7 +28,7 @@
 
         #intro-question {
             font-style: italic;
-            font-size: 1.6em;  /* Bigger as requested */
+            font-size: 1.6em;
             color: #88c0d0;
             margin-bottom: 30px;
             line-height: 1.4;
@@ -101,8 +101,8 @@
             padding-top: 20px;
         }
 
-        #custom-term-explainer {
-            font-size: 0.8em; /* Base size for explainer/links */
+        #custom-term-explainer { /* Base size for Explainer and Links */
+            font-size: 0.8em;
             color: #aaaaaa;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -136,16 +136,13 @@
         .details-section {
             background-color: transparent;
             padding: 10px;
-            border-radius: 0;
-            box-shadow: none;
-            border: none;
             margin-top: 30px;
             margin-bottom: 20px;
             text-align: center;
         }
-        /* Default P in this section */
+        /* Default p style in this section */
         .details-section p {
-            font-size: 0.8em; /* Default base size for this section */
+            font-size: 0.8em; /* Default size */
             line-height: 1.5;
             margin-bottom: 8px;
             color: #707070;
@@ -159,29 +156,28 @@
             color: #5c7a8c;
             text-decoration: none;
             margin: 0 8px;
-            font-size: 0.8em; /* Links size */
+            font-size: inherit; /* Inherit size from parent P (0.8em) */
             display: inline-block;
             margin-bottom: 5px;
-            line-height: 1.5;
+            line-height: inherit; /* Inherit line-height */
         }
         .details-section .contact-links a:hover {
             text-decoration: underline;
             color: #79aacc;
         }
 
-         /* Style for the personal info line */
+         /* Style for the personal info line - OVERRIDE the default P size */
         #personal-info {
-            font-size: 0.65em; /* Changed: Made DRASTICALLY smaller */
+            font-size: 0.7em; /* Explicitly smaller than links/explainer */
             color: #aaaaaa;
-            line-height: 1.4; /* Slightly tighter line height for smaller text */
-            margin-bottom: 8px;
+            line-height: 1.4; /* Slightly tighter maybe */
         }
 
 
         /* Footer */
         footer {
             margin-top: 30px;
-            font-size: 0.7em; /* Footer base size */
+            font-size: 0.7em; /* Footer is smallest */
             color: #454545;
         }
         footer p {
@@ -216,9 +212,10 @@
             #ticker-unit { font-size: 1.4em; }
             #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1.1em; }
+             /* Set base size for small text */
             #custom-term-explainer { font-size: 0.75em; }
             .details-section .contact-links a { font-size: 0.75em; } /* Links */
-            #personal-info { font-size: 0.65em; } /* Adjusted - noticeably smaller than links */
+            #personal-info { font-size: 0.65em; } /* Explicitly smaller */
         }
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
@@ -226,7 +223,10 @@
              #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 1em; }
-             #personal-info { font-size: 0.6em; } /* Adjusted */
+             /* Keep hierarchy on smallest screens */
+             #custom-term-explainer { font-size: 0.70em; }
+             .details-section .contact-links a { font-size: 0.70em; }
+             #personal-info { font-size: 0.60em; }
         }
     </style>
 </head>
