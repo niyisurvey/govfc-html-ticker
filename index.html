@@ -13,9 +13,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* MODIFIED: Changed from 'center' to 'flex-start' */
             min-height: 100vh;
-            padding: 0; /* MODIFIED: Changed from 10px to 0px to remove top/side/bottom body padding */
+            padding: 0;
             box-sizing: border-box;
             text-align: center;
             overflow-x: hidden;
@@ -23,14 +23,15 @@
 
         .container {
             width: 100%;
-            max-width: 95%; /* This will provide side margins once body padding is removed */
+            max-width: 95%;
         }
 
         #intro-question {
             font-style: italic;
-            font-size: 1.6em;  /* Bigger as requested */
+            font-size: 1.6em;
             color: #88c0d0;
-            margin-bottom: 30px;
+            margin-bottom: 30px; /* This adds space below this element */
+            margin-top: 10px; /* ADDED: You might want a small margin here so text isn't flush with the very top */
             line-height: 1.4;
         }
 
@@ -70,7 +71,7 @@
         #ticker-seconds { /* For "AND XXX FUCKING SECONDS" */
             font-size: 1.5em;
             color: #FFFFFF;
-            margin: 5px 0 0 0; /* Top margin 5px, bottom 0px */
+            margin: 5px 0 0 0;
             font-weight: bold;
             line-height: 1.2;
         }
@@ -89,20 +90,20 @@
             color: #FFEB3B;
             min-height: 1.5em;
             font-weight: bold;
-            margin-top: 1px; /* MODIFIED: Reduced from 5px to further close the gap */
+            margin-top: 1px;
             margin-bottom: 30px;
         }
 
          /* Custom Term Section Styling */
         #custom-term-section {
             margin-top: 20px;
-            margin-bottom: 15px; /* MODIFIED: Reduced from 40px to lessen gap below input */
+            margin-bottom: 15px;
             border-top: 1px solid #2a2a2a;
             padding-top: 20px;
         }
 
         #custom-term-explainer {
-            font-size: 0.8em; /* Base size for explainer/links */
+            font-size: 0.8em;
             color: #aaaaaa;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -145,7 +146,7 @@
         }
         /* Default P in this section */
         .details-section p {
-            font-size: 0.8em; /* Default base size for this section */
+            font-size: 0.8em;
             line-height: 1.5;
             margin-bottom: 8px;
             color: #707070;
@@ -159,7 +160,7 @@
             color: #5c7a8c;
             text-decoration: none;
             margin: 0 8px;
-            font-size: 0.8em; /* Links size */
+            font-size: 0.8em;
             display: inline-block;
             margin-bottom: 5px;
             line-height: 1.5;
@@ -171,9 +172,9 @@
 
          /* Style for the personal info line */
         #personal-info {
-            font-size: 0.65em; /* Changed: Made DRASTICALLY smaller */
+            font-size: 0.65em;
             color: #aaaaaa;
-            line-height: 1.4; /* Slightly tighter line height for smaller text */
+            line-height: 1.4;
             margin-bottom: 8px;
         }
 
@@ -181,7 +182,8 @@
         /* Footer */
         footer {
             margin-top: 30px;
-            font-size: 0.7em; /* Footer base size */
+            padding-bottom: 20px; /* ADDED: Small padding at the very bottom of the page */
+            font-size: 0.7em;
             color: #454545;
         }
         footer p {
@@ -217,8 +219,8 @@
             #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1.1em; }
             #custom-term-explainer { font-size: 0.75em; }
-            .details-section .contact-links a { font-size: 0.75em; } /* Links */
-            #personal-info { font-size: 0.65em; } /* Adjusted - noticeably smaller than links */
+            .details-section .contact-links a { font-size: 0.75em; }
+            #personal-info { font-size: 0.65em; }
         }
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
@@ -226,7 +228,7 @@
              #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 1em; }
-             #personal-info { font-size: 0.6em; } /* Adjusted */
+             #personal-info { font-size: 0.6em; }
         }
     </style>
 </head>
@@ -259,7 +261,7 @@
 
     <script>
         // --- Configuration ---
-        const governmentStartDate = new Date("2024-07-05T00:00:00Z");
+        const governmentStartDate = new Date("2024-07-05T00:00:00Z"); // Note: This date is in the past from current date.
         const footballMatchDurationMinutes = 90;
         const DEFAULT_TERM_YEARS = 4.56;
 
@@ -293,7 +295,11 @@
         function updateTicker() {
             const now = new Date();
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
-            if (elapsedMilliseconds < 0) elapsedMilliseconds = 0;
+            
+            // If the governmentStartDate is in the future relative to 'now', elapsedMilliseconds will be negative.
+            // For a countdown *to* a future start, this logic would be different.
+            // Assuming the intention is to count *from* a past start date:
+            if (elapsedMilliseconds < 0) elapsedMilliseconds = 0; // Show 0 if start date hasn't been reached or is same as now.
 
             let currentTermYears = DEFAULT_TERM_YEARS;
             if (termLengthInputElement) {
@@ -350,8 +356,8 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             setInitialInfo();
-            updateTicker();
-            const intervalId = setInterval(updateTicker, 1000);
+            updateTicker(); // Initial call to display time immediately
+            const intervalId = setInterval(updateTicker, 1000); // Update every second
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', function() {
