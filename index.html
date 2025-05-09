@@ -30,32 +30,32 @@
             font-style: italic;
             font-size: 1.6em;
             color: #88c0d0;
-            margin-bottom: 20px; 
-            margin-top: 10px; 
+            margin-bottom: 20px;
+            margin-top: 10px;
             line-height: 1.4;
-            text-transform: lowercase; 
+            text-transform: lowercase;
         }
 
-        #custom-term-section label  { 
+        #custom-term-section label  {
             font-size: 0.9em;
             color: #b0b0b0;
             margin-bottom: 8px;
-            display: block; 
-            text-transform: lowercase; 
+            display: block;
+            text-transform: lowercase;
         }
 
         #election-date-input {
             font-size: 1em;
             padding: 8px 12px;
-            min-width: 200px; 
+            min-width: 200px;
             background-color: #2a2a2a;
             color: #e0e0e0;
             border: 1px solid #454545;
             border-radius: 4px;
             text-align: center;
             cursor: pointer;
-            color-scheme: dark; 
-            margin-top: 5px; 
+            color-scheme: dark;
+            margin-top: 5px;
         }
         #election-date-input:focus {
             outline: 1px solid #88c0d0;
@@ -84,7 +84,7 @@
             padding: 0;
         }
 
-        #ticker-unit { 
+        #ticker-unit {
             font-size: 2.2em;
             color: #b0b0b0;
             margin: 0;
@@ -94,7 +94,7 @@
             text-transform: uppercase; /* Ensuring this is uppercase */
         }
 
-        #ticker-seconds { 
+        #ticker-seconds {
             font-size: 1.5em;
             color: #FFFFFF;
             margin: 5px 0 0 0;
@@ -114,7 +114,7 @@
 
         #half-time-message {
             font-size: 1.4em;
-            color: #FFEB3B; 
+            color: #FFEB3B;
             height: 1.4em; /* Set height to match font-size to take space only when text is present */
             line-height: 1.4em; /* Consistent line height */
             min-height: 0; /* Allow it to be truly small if empty */
@@ -129,11 +129,11 @@
             margin-bottom: 15px;
             border-top: 1px solid #2a2a2a;
             padding-top: 20px;
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
+
         #custom-term-explainer {
             font-size: 0.8em;
             color: #aaaaaa;
@@ -153,7 +153,7 @@
             border: 1px solid #454545;
             border-radius: 4px;
             text-align: center;
-            margin-bottom: 15px; 
+            margin-bottom: 15px;
         }
         #term-length-input::-webkit-outer-spin-button,
         #term-length-input::-webkit-inner-spin-button {
@@ -173,28 +173,28 @@
             margin-top: 30px;
             margin-bottom: 20px;
             text-align: center;
-            font-size: 0.8em; 
-            line-height: 1.5; 
-            color: #707070; 
+            font-size: 0.8em;
+            line-height: 1.5;
+            color: #707070;
         }
         /* Removed .details-section p rule as it was redundant for <p class="details-section"> */
 
         footer {
             margin-top: 30px;
-            padding-bottom: 20px; 
+            padding-bottom: 20px;
             font-size: 0.7em;
             color: #454545;
         }
         footer p {
             margin-bottom: 3px;
         }
-        footer a { 
-            color: #5c7a8c; 
+        footer a {
+            color: #5c7a8c;
             text-decoration: none;
         }
         footer a:hover {
             text-decoration: underline;
-            color: #79aacc; 
+            color: #79aacc;
         }
 
         @media (max-width: 1200px) {
@@ -240,28 +240,28 @@
     <div class="container">
         <main>
             <p id="intro-question">if this parliamentary term were a football match, how long have the current uk government been in power?</p>
-            
+
             <div class="ticker-wrapper">
                 <p id="ticker-intro">FOR FUCKS SAKE IT'S ONLY FUCKING BEEN</p>
                 <div id="game-minutes-big">00</div>
                 <p id="ticker-unit">MINUTES</p> <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p> </div>
-            <p id="half-time-message"> </p> 
+            <p id="half-time-message"> </p>
 
             <div id="custom-term-section">
                 <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:</p>
-                
+
                 <label for="term-length-input">term length</label>
                 <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years">
-                
+
                 <label for="election-date-input">last election date</label>
                 <input type="date" id="election-date-input" aria-label="last election date">
             </div>
-            
+
             <p class="details-section">this is a personal project made for the handful of people that keep me sane all week 🎙️💜🗣️</p>
 
         </main>
 
-    
+
         <footer>
             <p>© <span id="current-year"></span> govfc.co.uk - if it's not broken lololol.</p>
             <p><a href="https://github.com/niyisurvey/govfc-site" target="_blank" rel="noopener noreferrer">view source on github</a></p>
@@ -269,8 +269,8 @@
     </div>
 
     <script>
-        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-05"; 
-        const DEFAULT_TERM_YEARS_FLOAT = 4.56; 
+        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-05";
+        const DEFAULT_TERM_YEARS_FLOAT = 4.56;
         const footballMatchDurationMinutes = 90;
 
         let governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
@@ -287,7 +287,7 @@
         const introQuestionElement = document.getElementById('intro-question');
 
         function setInitialInfo() {
-            if (introQuestionElement) { 
+            if (introQuestionElement) {
                 introQuestionElement.textContent = "if this parliamentary term were a football match, how long have the current uk government been in power?";
             }
             if (currentYearElement) {
@@ -302,18 +302,18 @@
             if (customTermExplainerElement) {
                  customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:";
             }
-            
+
             if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN"; // Original casing
             if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES"; // Uppercase
             if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>"; // Uppercase
         }
-        
+
         function handleDateChange() {
             const dateValue = electionDateInputElement.value;
-            if (dateValue && dateValue !== "") { 
+            if (dateValue && dateValue !== "") {
                 governmentStartDate = new Date(dateValue + "T00:00:00Z");
             } else {
-                electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING; 
+                electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
             }
             updateTicker();
@@ -322,17 +322,19 @@
         function updateTicker() {
             const now = new Date();
             if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
+                // Fallback if governmentStartDate is somehow invalid
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
+                if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
             }
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
-            
-            let currentTermYears = DEFAULT_TERM_YEARS_FLOAT; 
+
+            let currentTermYears = DEFAULT_TERM_YEARS_FLOAT;
             const inputValue = parseFloat(termLengthInputElement.value);
             if (!isNaN(inputValue) && inputValue > 0) {
                 currentTermYears = inputValue;
             } else {
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
-                currentTermYears = DEFAULT_TERM_YEARS_FLOAT; 
+                currentTermYears = DEFAULT_TERM_YEARS_FLOAT;
             }
             const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
@@ -351,17 +353,20 @@
                 const minutes = Math.floor((timeToStartMs % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeToStartMs % (1000 * 60)) / 1000);
 
-                gameMinutesBigElement.textContent = String(days).padStart(2,'0') ; 
-                unitText = (days === 1) ? "DAY TIL KICK OFF" : "DAYS TIL KICK OFF"; 
-                tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}H ${String(minutes).padStart(2,'0')}M ${String(seconds).padStart(2,'0')}S)<span class="term-explainer-asterisk">*</span>`; // This part is not all caps by design
-                // For countdown, we set intro and unit directly, and seconds separately.
+                if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(days).padStart(2,'0') ;
+                unitText = (days === 1) ? "DAY TIL KICK OFF" : "DAYS TIL KICK OFF";
+                if (tickerSecondsElement) tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}H ${String(minutes).padStart(2,'0')}M ${String(seconds).padStart(2,'0')}S)<span class="term-explainer-asterisk">*</span>`; // This part is not all caps by design
+                
                 if (tickerIntroElement) tickerIntroElement.textContent = introText;
                 if (tickerUnitElement) tickerUnitElement.textContent = unitText;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; 
-                return; 
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; // Reset half-time message for countdown
+                return;
             }
 
             const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0;
+            // *** THIS WAS THE MISSING LINE ***
+            const matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
+            
             let gameMinutes = Math.floor(matchTimeTotalMinutes);
             let gameSeconds = Math.floor((matchTimeTotalMinutes - gameMinutes) * 60);
 
@@ -369,12 +374,12 @@
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
                 introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
-                unitText = (gameMinutes === 1) ? "MINUTE." : "MINUTES."; 
-                halfTimeText = "FULL TIME"; 
+                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES."; // Corrected pluralization for "MINUTE."
+                halfTimeText = "FULL TIME";
             } else {
                 // introText remains "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN"
-                unitText = (gameMinutes === 1) ? "MINUTE" : "MINUTES"; 
-                // halfTimeText remains "&nbsp;"
+                unitText = (gameMinutes === 1) ? "MINUTE" : "MINUTES";
+                // halfTimeText remains "&nbsp;" unless it's exactly half time, which isn't explicitly handled here beyond this.
             }
 
             if (tickerIntroElement) tickerIntroElement.textContent = introText; // Original casing
@@ -383,25 +388,25 @@
             if (tickerSecondsElement) { // Uppercase handled here
                 tickerSecondsElement.innerHTML = secondsTextPrefix + String(gameSeconds).padStart(2, '0') + secondsTextSuffix + "<span class=\"term-explainer-asterisk\">*</span>";
             }
-            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; 
+            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             setInitialInfo();
             const initialDateValue = electionDateInputElement.value;
-            if (initialDateValue && initialDateValue !== "") {
+            if (initialDateValue && initialDateValue !== "") { // Ensure initial date from input is used if present
                  governmentStartDate = new Date(initialDateValue + "T00:00:00Z");
             }
-            updateTicker(); 
-            setInterval(updateTicker, 1000); 
+            updateTicker();
+            setInterval(updateTicker, 1000);
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', updateTicker);
                 termLengthInputElement.addEventListener('blur', function() {
                     const inputValueFloat = parseFloat(termLengthInputElement.value);
                     if (isNaN(inputValueFloat) || inputValueFloat <= 0) {
-                        termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2); 
-                        updateTicker();
+                        termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
+                        updateTicker(); // Ensure ticker updates with default if invalid input
                     }
                 });
             }
@@ -410,7 +415,7 @@
                 electionDateInputElement.addEventListener('change', handleDateChange);
                 electionDateInputElement.addEventListener('blur', function() {
                     if (!electionDateInputElement.value || electionDateInputElement.value === "") {
-                         handleDateChange(); 
+                         handleDateChange(); // Revert to default or last valid if cleared
                     }
                 });
             }
