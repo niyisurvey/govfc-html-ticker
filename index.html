@@ -269,8 +269,9 @@
     </div>
 
     <script>
-        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-05";
-        const DEFAULT_TERM_YEARS_FLOAT = 4.56;
+        // Updated default start date to July 4th, 2024
+        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-04";
+        const DEFAULT_TERM_YEARS_FLOAT = 4.56; // This was already 4.56
         const footballMatchDurationMinutes = 90;
 
         let governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
@@ -364,7 +365,6 @@
             }
 
             const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0;
-            // *** THIS WAS THE MISSING LINE ***
             const matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
             
             let gameMinutes = Math.floor(matchTimeTotalMinutes);
@@ -374,7 +374,7 @@
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
                 introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
-                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES."; // Corrected pluralization for "MINUTE."
+                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES."; 
                 halfTimeText = "FULL TIME";
             } else {
                 // introText remains "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN"
