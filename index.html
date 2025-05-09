@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Kept as per your modification */
+            justify-content: flex-start; /* MODIFIED: Changed from 'center' to 'flex-start' */
             min-height: 100vh;
             padding: 0;
             box-sizing: border-box;
@@ -30,39 +30,39 @@
             font-style: italic;
             font-size: 1.6em;
             color: #88c0d0;
-            margin-bottom: 30px; /* Reverted to your original value */
+            margin-bottom: 20px; /* Adjusted from original 30px */
             margin-top: 10px; 
             line-height: 1.4;
         }
 
-        /* Election Selector Styling - Minimal */
-        .election-selector-wrapper {
-            margin-bottom: 20px; /* Space after dropdown */
+        /* Date Input Styling */
+        .date-input-wrapper {
+            margin-bottom: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .election-selector-wrapper label {
-            font-size: 0.9em; /* Consistent label styling */
+        .date-input-wrapper label {
+            font-size: 0.9em;
             color: #b0b0b0;
             margin-bottom: 8px;
         }
 
-        #election-select {
+        #election-date-input {
             font-size: 1em;
             padding: 8px 12px;
-            min-width: 250px; 
+            min-width: 200px; 
             background-color: #2a2a2a;
             color: #e0e0e0;
             border: 1px solid #454545;
             border-radius: 4px;
             text-align: center;
             cursor: pointer;
-            /* Removed custom arrow styling, browser default will be used */
+            color-scheme: dark; /* Helps with date picker styling in dark mode */
         }
-        #election-select:focus {
-            outline: 1px solid #88c0d0; /* Basic focus indicator */
+        #election-date-input:focus {
+            outline: 1px solid #88c0d0;
         }
 
 
@@ -118,8 +118,8 @@
 
         #half-time-message {
             font-size: 1.4em;
-            color: #FFEB3B; /* Your original color for messages */
-            min-height: 1.5em; /* Kept to prevent layout jump if message appears */
+            color: #FFEB3B; /* Original color, though content will be mostly blank */
+            min-height: 1.5em;
             font-weight: bold;
             margin-top: 1px;
             margin-bottom: 30px;
@@ -131,8 +131,17 @@
             margin-bottom: 15px;
             border-top: 1px solid #2a2a2a;
             padding-top: 20px;
-            /* Removed flex alignment, relies on default block centering due to body text-align: center */
+            display: flex; /* Added for centering */
+            flex-direction: column; /* Added for centering */
+            align-items: center; /* Added for centering */
         }
+        
+        #custom-term-section label { /* Label for the input box */
+            font-size: 0.9em; /* Added style for consistency */
+            color: #b0b0b0; /* Added style for consistency */
+            margin-bottom: 8px; /* Added style for consistency */
+        }
+
 
         #custom-term-explainer {
             font-size: 0.8em;
@@ -140,7 +149,7 @@
             line-height: 1.5;
             margin-bottom: 15px;
             text-transform: lowercase;
-            max-width: 450px; /* As per your original derived styles */
+            max-width: 450px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -161,12 +170,12 @@
           margin: 0;
         }
         #term-length-input[type=number] {
-          -moz-appearance: textfield; /* Firefox */
+          -moz-appearance: textfield;
         }
 
 
         /* "Super Discreet" Personal Details Section */
-        .details-section {
+        .details-section { /* This class is in your original HTML structure, though not directly used by a p tag */
             background-color: transparent;
             padding: 10px;
             border-radius: 0;
@@ -176,15 +185,17 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* Default P in this section */
-        .details-_section p { /* Typo fixed from .details-section p to .details-section p if that was intended or remove underscore */
+        /* Default P in this section - this style will apply to the p tag with class "details-section" */
+        p.details-section { /* Made selector more specific */
             font-size: 0.8em;
             line-height: 1.5;
             margin-bottom: 8px;
             color: #707070;
         }
 
-        .details-section .contact-links {
+        /* Contact links if you ever add them, kept from original structure */
+        /*
+        .details-section .contact-links { 
             margin-top: 8px;
             margin-bottom: 8px;
         }
@@ -201,14 +212,17 @@
             text-decoration: underline;
             color: #79aacc;
         }
+        */
 
-         /* Style for the personal info line (Original had #personal-info ID which wasn't used in HTML body)*/
-        #personal-info { 
+         /* Style for the personal info line, kept from original structure if you use #personal-info */
+        /*
+        #personal-info {
             font-size: 0.65em;
             color: #aaaaaa;
             line-height: 1.4;
             margin-bottom: 8px;
         }
+        */
 
 
         /* Footer */
@@ -221,8 +235,17 @@
         footer p {
             margin-bottom: 3px;
         }
+        footer a { /* Style for the GitHub link */
+            color: #5c7a8c;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+            color: #79aacc;
+        }
 
-        /* Responsive adjustments - Kept as per your original code */
+
+        /* Responsive adjustments */
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
             #ticker-unit { font-size: 2em; }
@@ -251,9 +274,9 @@
             #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1.1em; }
             #custom-term-explainer { font-size: 0.75em; }
-            .details-section .contact-links a { font-size: 0.75em; }
-            #personal-info { font-size: 0.65em; }
-            #election-select { min-width: 200px; font-size: 0.9em;} /* Retained for usability of dropdown */
+            /* .details-section .contact-links a { font-size: 0.75em; } */ /* If contact links are used */
+            /* #personal-info { font-size: 0.65em; } */ /* If #personal-info is used */
+            #election-date-input { min-width: 180px; font-size: 0.9em;}
         }
         @media (max-width: 380px) {
              #game-minutes-big { font-size: 7em; }
@@ -261,7 +284,7 @@
              #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 1em; }
-             #personal-info { font-size: 0.6em; }
+             /* #personal-info { font-size: 0.6em; } */  /* If #personal-info is used */
         }
     </style>
 </head>
@@ -269,11 +292,10 @@
     <div class="container">
         <main>
             <p id="intro-question">If this parliamentary term were a football match, how long have the current UK government been in power?</p>
-
-            <div class="election-selector-wrapper">
-                <label for="election-select">Select Government Term Start:</label>
-                <select id="election-select" aria-label="Select Government Term Start">
-                    </select>
+            
+            <div class="date-input-wrapper">
+                <label for="election-date-input">Enter Last Election Date:</label>
+                <input type="date" id="election-date-input" aria-label="Enter Last Election Date">
             </div>
 
             <div class="ticker-wrapper">
@@ -283,8 +305,8 @@
                 <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p>
             </div>
             <p id="half-time-message"> </p> <div id="custom-term-section">
-                <p id="custom-term-explainer">*the 'match length' (total term in years) below defaults to a typical duration for the selected government. feel free to enter your own value.</p>
-                <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="Custom term length in years">
+                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). enter ur own term length in the box if you like</p>
+                 <label for="term-length-input">Assumed 'Full Match' Length (Years):</label> <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="Custom term length in years">
             </div>
             <p class="details-section">this is a personal project made for the handful of people that keep me sane all week 🎙️💜🗣️</p>
 
@@ -293,24 +315,17 @@
     
         <footer>
             <p>© <span id="current-year"></span> govfc.co.uk - if it's not broken lololol.</p>
-            </footer>
+            <p><a href="https://github.com/niyisurvey/govfc-site" target="_blank" rel="noopener noreferrer">view source on github</a></p>
+        </footer>
     </div>
 
     <script>
         // --- Configuration ---
-        const footballMatchDurationMinutes = 90; // This was in your original JS, seems core to the concept
-        let governmentStartDate; // Will be new Date(electionData[X].startDateString);
-        let currentSelectedTermDefaultYears; // Will be electionData[X].defaultTermYears;
+        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2019-12-13"; // Day after 2019 UK General Election
+        const DEFAULT_TERM_YEARS_FLOAT = 4.56; // As per your explainer text
+        const footballMatchDurationMinutes = 90;
 
-        // Data for different government terms
-        const electionData = [
-            { name: "UK Gov (from Jul 2024)", startDateString: "2024-07-05T00:00:00Z", defaultTermYears: 4.56 },
-            { name: "UK Gov (2019-2024)", startDateString: "2019-12-13T00:00:00Z", defaultTermYears: 4.46 },
-            { name: "UK Gov (2017-2019)", startDateString: "2017-06-09T00:00:00Z", defaultTermYears: 2.41 },
-            { name: "UK Gov (2015-2017)", startDateString: "2015-05-08T00:00:00Z", defaultTermYears: 2.07 },
-            { name: "UK Gov (2010-2015 Coalition)", startDateString: "2010-05-11T00:00:00Z", defaultTermYears: 4.97 }
-        ];
-
+        let governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
 
         // --- DOM Elements ---
         const tickerIntroElement = document.getElementById('ticker-intro');
@@ -320,133 +335,150 @@
         const halfTimeMessageElement = document.getElementById('half-time-message');
         const currentYearElement = document.getElementById('current-year');
         const termLengthInputElement = document.getElementById('term-length-input');
-        const electionSelectElement = document.getElementById('election-select');
-
-        function populateElectionDropdown() {
-            electionData.forEach((election, index) => {
-                const option = document.createElement('option');
-                option.value = index; 
-                option.textContent = election.name;
-                electionSelectElement.appendChild(option);
-            });
-            electionSelectElement.value = "0"; // Default to the first option
-            handleElectionChange(); 
-        }
-
-        function handleElectionChange() {
-            const selectedIndex = parseInt(electionSelectElement.value);
-            const selectedElection = electionData[selectedIndex];
-
-            governmentStartDate = new Date(selectedElection.startDateString);
-            currentSelectedTermDefaultYears = selectedElection.defaultTermYears;
-            termLengthInputElement.value = currentSelectedTermDefaultYears.toFixed(2);
-            updateTicker(); 
-        }
+        const electionDateInputElement = document.getElementById('election-date-input');
+        const customTermExplainerElement = document.getElementById('custom-term-explainer');
 
         function setInitialInfo() {
-            // This function is from your original code.
-            // Its role for setting ticker text is largely superseded by updateTicker() being called on load,
-            // but setting the year and default term length input value is still relevant here if not handled by handleElectionChange on init.
-            // However, handleElectionChange -> updateTicker will set everything dynamically on load.
             if (currentYearElement) {
                 currentYearElement.textContent = new Date().getFullYear();
             }
-            // The initial values for ticker text elements are set by updateTicker based on selected term.
-            // The initial value for termLengthInputElement is set by handleElectionChange.
+            if (electionDateInputElement) {
+                electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
+            }
+            if (termLengthInputElement) {
+                termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
+            }
+            // Set the explainer text as requested
+            if (customTermExplainerElement) {
+                 customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). enter ur own term length in the box if you like";
+            }
+            // Initial text for ticker elements (will be updated by updateTicker)
+            if (tickerIntroElement) {
+                tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
+            }
+            if (tickerUnitElement) {
+                tickerUnitElement.textContent = "MINUTES";
+            }
+            if (tickerSecondsElement) {
+                tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
+            }
         }
+        
+        function handleDateChange() {
+            const dateValue = electionDateInputElement.value;
+            if (dateValue) { // Check if a date is actually selected
+                governmentStartDate = new Date(dateValue + "T00:00:00Z");
+                // When date changes, reset explainer to be generic as it's no longer 2019 default
+                if (customTermExplainerElement) {
+                     customTermExplainerElement.textContent = "*based upon the selected start date. enter ur own 'full match' length in the box if you like.";
+                }
+            } else {
+                // If date is cleared, revert to default and default explainer
+                governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
+                if (customTermExplainerElement) {
+                    customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). enter ur own term length in the box if you like";
+                }
+            }
+            updateTicker();
+        }
+
 
         function updateTicker() {
             const now = new Date();
-            // Ensure governmentStartDate is valid before proceeding
-            if (!governmentStartDate || isNaN(governmentStartDate.getTime())) {
-                // Fallback or error display if governmentStartDate is not set (shouldn't happen with current logic)
-                if (gameMinutesBigElement) gameMinutesBigElement.textContent = "--";
-                if (tickerUnitElement) tickerUnitElement.textContent = "ERROR";
-                if (tickerSecondsElement) tickerSecondsElement.innerHTML = "No date selected<span class=\"term-explainer-asterisk\">*</span>";
-                return;
-            }
-            
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
             
-            let termYearsFromInput = currentSelectedTermDefaultYears; 
+            // Term length for calculation from input
+            let currentTermYears = DEFAULT_TERM_YEARS_FLOAT; // Fallback to default
             const inputValue = parseFloat(termLengthInputElement.value);
             if (!isNaN(inputValue) && inputValue > 0) {
-                termYearsFromInput = inputValue;
+                currentTermYears = inputValue;
             } else {
-                termLengthInputElement.value = currentSelectedTermDefaultYears.toFixed(2); // Reset if invalid
-                termYearsFromInput = currentSelectedTermDefaultYears;
+                // If input is invalid, reset it to the default for calculation robustness
+                termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
             }
-            const totalTermMilliseconds = termYearsFromInput * 365.25 * 24 * 60 * 60 * 1000;
+            const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
-            // Countdown logic for future start dates
+            // Handle future start dates (countdown)
             if (elapsedMilliseconds < 0) {
-                if (tickerIntroElement) tickerIntroElement.textContent = "THE POLITICAL MATCH STARTS IN...";
-                
+                tickerIntroElement.textContent = "THE POLITICAL MATCH STARTS IN...";
                 const timeToStartMs = Math.abs(elapsedMilliseconds);
                 const days = Math.floor(timeToStartMs / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeToStartMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeToStartMs % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeToStartMs % (1000 * 60)) / 1000);
 
-                if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(days).padStart(2,'0') ; 
-                if (tickerUnitElement) tickerUnitElement.textContent = (days === 1) ? "DAY TIL KICK OFF" : "DAYS TIL KICK OFF";
-                if (tickerSecondsElement) tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}h ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s)<span class="term-explainer-asterisk">*</span>`;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = "GET READY..."; // A simple anticipation message
+                gameMinutesBigElement.textContent = String(days).padStart(2,'0') ; 
+                tickerUnitElement.textContent = (days === 1) ? "DAY TIL KICK OFF" : "DAYS TIL KICK OFF";
+                tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}h ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s)<span class="term-explainer-asterisk">*</span>`;
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " "; // Keep blank as per original logic for non-fulltime
                 return; 
             }
 
-            // Regular timer logic
+            // Normal operation (counting up from start date)
             const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0;
             let matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
 
             let gameMinutes = Math.floor(matchTimeTotalMinutes);
             let gameSeconds = Math.floor((matchTimeTotalMinutes - gameMinutes) * 60);
 
-            let introMessage = "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN";
-            let unitMessage = (gameMinutes === 1) ? "MINUTE" : "MINUTES"; // Default, adjusted if full time
-            let halfTimeMsgText = " "; // Default non-breaking space
-
             if (gameMinutes >= footballMatchDurationMinutes) {
-                gameMinutes = footballMatchDurationMinutes; // Cap at match duration
+                gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
-                introMessage = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
-                unitMessage = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES."; // Handle pluralisation correctly
-                halfTimeMsgText = "FULL TIME";
+
+                if (tickerIntroElement) {
+                    tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
+                }
+                if (gameMinutesBigElement) {
+                    gameMinutesBigElement.textContent = String(gameMinutes);
+                }
+                if (tickerUnitElement) {
+                    tickerUnitElement.textContent = (gameMinutes === 1) ? "MINUTE." : "MINUTES.";
+                }
+                if (tickerSecondsElement) {
+                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.<span class=\"term-explainer-asterisk\">*</span>";
+                }
+                if (halfTimeMessageElement) {
+                    halfTimeMessageElement.textContent = "FULL TIME";
+                }
             } else {
-                 // Ensure correct singular/plural for minutes before full time
-                unitMessage = (gameMinutes === 1) ? "MINUTE" : "MINUTES";
+                if (tickerIntroElement) {
+                    tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
+                }
+                if (gameMinutesBigElement) {
+                    gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
+                }
+                if (tickerUnitElement) {
+                    tickerUnitElement.textContent = (gameMinutes === 1) ? "MINUTE" : "MINUTES";
+                }
+                if (tickerSecondsElement) {
+                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
+                }
+                if (halfTimeMessageElement) {
+                    halfTimeMessageElement.innerHTML = " "; // Non-breaking space, ensures the element keeps its height
+                }
             }
-            
-            if (tickerIntroElement) tickerIntroElement.textContent = introMessage;
-            if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
-            if (tickerUnitElement) tickerUnitElement.textContent = unitMessage;
-            if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
-            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeMsgText; // Adheres to your original logic
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            setInitialInfo(); // Sets year, called as in your original
-            populateElectionDropdown(); // Populates dropdown, sets initial term, and calls updateTicker
-            
-            const intervalId = setInterval(updateTicker, 1000); 
+            setInitialInfo();
+            updateTicker(); // Initial call to display time immediately
+            const intervalId = setInterval(updateTicker, 1000); // Update every second
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', function() {
-                    updateTicker(); 
+                    updateTicker(); // Update ticker immediately on input change
                 });
-                termLengthInputElement.addEventListener('blur', function() { // Handle invalid input on blur
-                    const inputValue = parseFloat(termLengthInputElement.value);
-                    if (isNaN(inputValue) || inputValue <= 0) {
-                        // Reset to the default for the currently selected term if input is bad
-                        if (currentSelectedTermDefaultYears) { // Check if defined
-                           termLengthInputElement.value = currentSelectedTermDefaultYears.toFixed(2);
-                        }
+                 termLengthInputElement.addEventListener('blur', function() {
+                    const inputValueFloat = parseFloat(termLengthInputElement.value);
+                    if (isNaN(inputValueFloat) || inputValueFloat <= 0) {
+                        termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2); // Reset to default if invalid
                         updateTicker();
                     }
                 });
             }
-            if (electionSelectElement) {
-                electionSelectElement.addEventListener('change', handleElectionChange);
+
+            if (electionDateInputElement) {
+                electionDateInputElement.addEventListener('change', handleDateChange);
             }
         });
     </script>
