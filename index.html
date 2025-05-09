@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* MODIFIED: Changed from 'center' to 'flex-start' */
+            justify-content: flex-start;
             min-height: 100vh;
             padding: 0;
             box-sizing: border-box;
@@ -30,23 +30,20 @@
             font-style: italic;
             font-size: 1.6em;
             color: #88c0d0;
-            margin-bottom: 20px; /* Adjusted from original 30px */
+            margin-bottom: 20px; 
             margin-top: 10px; 
             line-height: 1.4;
+            text-transform: lowercase; /* Ensuring lowercase */
         }
 
-        /* Date Input Styling */
-        .date-input-wrapper {
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .date-input-wrapper label {
+        /* Date Input Styling - will be inside custom-term-section now */
+        .date-input-wrapper label, /* Style for labels if wrapped */
+        #custom-term-section label  { /* Common style for labels in this section */
             font-size: 0.9em;
             color: #b0b0b0;
             margin-bottom: 8px;
+            display: block; /* Ensure labels are on their own line if needed */
+            text-transform: lowercase; /* Ensuring lowercase */
         }
 
         #election-date-input {
@@ -59,7 +56,8 @@
             border-radius: 4px;
             text-align: center;
             cursor: pointer;
-            color-scheme: dark; /* Helps with date picker styling in dark mode */
+            color-scheme: dark; 
+            margin-top: 5px; /* Space below its label */
         }
         #election-date-input:focus {
             outline: 1px solid #88c0d0;
@@ -90,7 +88,7 @@
             padding: 0;
         }
 
-        #ticker-unit { /* For "MINUTES" */
+        #ticker-unit { 
             font-size: 2.2em;
             color: #b0b0b0;
             margin: 0;
@@ -99,7 +97,7 @@
             margin-top: -0.1em;
         }
 
-        #ticker-seconds { /* For "AND XXX FUCKING SECONDS" */
+        #ticker-seconds { 
             font-size: 1.5em;
             color: #FFFFFF;
             margin: 5px 0 0 0;
@@ -118,37 +116,29 @@
 
         #half-time-message {
             font-size: 1.4em;
-            color: #FFEB3B; /* Original color, though content will be mostly blank */
+            color: #FFEB3B; 
             min-height: 1.5em;
             font-weight: bold;
             margin-top: 1px;
             margin-bottom: 30px;
         }
 
-         /* Custom Term Section Styling */
         #custom-term-section {
             margin-top: 20px;
             margin-bottom: 15px;
             border-top: 1px solid #2a2a2a;
             padding-top: 20px;
-            display: flex; /* Added for centering */
-            flex-direction: column; /* Added for centering */
-            align-items: center; /* Added for centering */
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
         }
         
-        #custom-term-section label { /* Label for the input box */
-            font-size: 0.9em; /* Added style for consistency */
-            color: #b0b0b0; /* Added style for consistency */
-            margin-bottom: 8px; /* Added style for consistency */
-        }
-
-
         #custom-term-explainer {
             font-size: 0.8em;
             color: #aaaaaa;
             line-height: 1.5;
             margin-bottom: 15px;
-            text-transform: lowercase;
+            /* text-transform: lowercase; */ /* Removed, will use user's exact casing */
             max-width: 450px;
             margin-left: auto;
             margin-right: auto;
@@ -163,6 +153,7 @@
             border: 1px solid #454545;
             border-radius: 4px;
             text-align: center;
+            margin-bottom: 15px; /* Space before next input block */
         }
         #term-length-input::-webkit-outer-spin-button,
         #term-length-input::-webkit-inner-spin-button {
@@ -173,9 +164,8 @@
           -moz-appearance: textfield;
         }
 
-
-        /* "Super Discreet" Personal Details Section */
-        .details-section { /* This class is in your original HTML structure, though not directly used by a p tag */
+        /* Original "Super Discreet" Personal Details Section styling from user */
+        .details-section {
             background-color: transparent;
             padding: 10px;
             border-radius: 0;
@@ -184,45 +174,19 @@
             margin-top: 30px;
             margin-bottom: 20px;
             text-align: center;
+            /* These styles apply to <p class="details-section"> directly */
+            font-size: 0.8em; /* Assuming this was intended for the p itself */
+            line-height: 1.5; /* Assuming this was intended for the p itself */
+            color: #707070; /* Assuming this was intended for the p itself */
         }
-        /* Default P in this section - this style will apply to the p tag with class "details-section" */
-        p.details-section { /* Made selector more specific */
+        /* This rule from original CSS might not apply as expected to <p class="details-section"> */
+        /* Keeping it as per original if there was another intent */
+        .details-section p { 
             font-size: 0.8em;
             line-height: 1.5;
             margin-bottom: 8px;
             color: #707070;
         }
-
-        /* Contact links if you ever add them, kept from original structure */
-        /*
-        .details-section .contact-links { 
-            margin-top: 8px;
-            margin-bottom: 8px;
-        }
-        .details-section .contact-links a {
-            color: #5c7a8c;
-            text-decoration: none;
-            margin: 0 8px;
-            font-size: 0.8em;
-            display: inline-block;
-            margin-bottom: 5px;
-            line-height: 1.5;
-        }
-        .details-section .contact-links a:hover {
-            text-decoration: underline;
-            color: #79aacc;
-        }
-        */
-
-         /* Style for the personal info line, kept from original structure if you use #personal-info */
-        /*
-        #personal-info {
-            font-size: 0.65em;
-            color: #aaaaaa;
-            line-height: 1.4;
-            margin-bottom: 8px;
-        }
-        */
 
 
         /* Footer */
@@ -235,17 +199,16 @@
         footer p {
             margin-bottom: 3px;
         }
-        footer a { /* Style for the GitHub link */
-            color: #5c7a8c;
+        footer a { 
+            color: #5c7a8c; /* Original link color */
             text-decoration: none;
         }
         footer a:hover {
             text-decoration: underline;
-            color: #79aacc;
+            color: #79aacc; /* Original hover color */
         }
 
-
-        /* Responsive adjustments */
+        /* Responsive adjustments (kept from your original structure) */
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
             #ticker-unit { font-size: 2em; }
@@ -274,8 +237,6 @@
             #ticker-seconds { font-size: 1em; }
             #intro-question { font-size: 1.1em; }
             #custom-term-explainer { font-size: 0.75em; }
-            /* .details-section .contact-links a { font-size: 0.75em; } */ /* If contact links are used */
-            /* #personal-info { font-size: 0.65em; } */ /* If #personal-info is used */
             #election-date-input { min-width: 180px; font-size: 0.9em;}
         }
         @media (max-width: 380px) {
@@ -284,30 +245,32 @@
              #ticker-seconds { font-size: 0.9em; }
              #ticker-intro { font-size: 0.9em; }
              #intro-question { font-size: 1em; }
-             /* #personal-info { font-size: 0.6em; } */  /* If #personal-info is used */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <main>
-            <p id="intro-question">If this parliamentary term were a football match, how long have the current UK government been in power?</p>
+            <p id="intro-question">if this parliamentary term were a football match, how long have the current uk government been in power?</p>
             
-            <div class="date-input-wrapper">
-                <label for="election-date-input">Enter Last Election Date:</label>
-                <input type="date" id="election-date-input" aria-label="Enter Last Election Date">
-            </div>
-
             <div class="ticker-wrapper">
                 <p id="ticker-intro">FOR FUCKS SAKE IT'S ONLY FUCKING BEEN</p>
                 <div id="game-minutes-big">00</div>
                 <p id="ticker-unit">MINUTES</p>
                 <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p>
             </div>
-            <p id="half-time-message"> </p> <div id="custom-term-section">
+            <p id="half-time-message"> </p> 
+
+            <div id="custom-term-section">
                 <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). enter ur own term length in the box if you like</p>
-                 <label for="term-length-input">Assumed 'Full Match' Length (Years):</label> <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="Custom term length in years">
+                
+                <label for="term-length-input">term length</label>
+                <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years"> {/* Kept original aria-label, made lowercase */}
+                
+                <label for="election-date-input">last election date</label>
+                <input type="date" id="election-date-input" aria-label="last election date">
             </div>
+            
             <p class="details-section">this is a personal project made for the handful of people that keep me sane all week 🎙️💜🗣️</p>
 
         </main>
@@ -321,10 +284,12 @@
 
     <script>
         // --- Configuration ---
-        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2019-12-13"; // Day after 2019 UK General Election
-        const DEFAULT_TERM_YEARS_FLOAT = 4.56; // As per your explainer text
+        // Default start date is day after UK General Election of 4 July 2024
+        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-05"; 
+        const DEFAULT_TERM_YEARS_FLOAT = 4.56; // Default term length in years
         const footballMatchDurationMinutes = 90;
 
+        // Initialise governmentStartDate with the default
         let governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
 
         // --- DOM Elements ---
@@ -337,8 +302,13 @@
         const termLengthInputElement = document.getElementById('term-length-input');
         const electionDateInputElement = document.getElementById('election-date-input');
         const customTermExplainerElement = document.getElementById('custom-term-explainer');
+        const introQuestionElement = document.getElementById('intro-question');
+
 
         function setInitialInfo() {
+            if (introQuestionElement) { // Ensuring intro question is lowercase
+                introQuestionElement.textContent = "if this parliamentary term were a football match, how long have the current uk government been in power?";
+            }
             if (currentYearElement) {
                 currentYearElement.textContent = new Date().getFullYear();
             }
@@ -348,57 +318,50 @@
             if (termLengthInputElement) {
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
             }
-            // Set the explainer text as requested
+            // Set the explainer text exactly as requested, it will be static.
             if (customTermExplainerElement) {
                  customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). enter ur own term length in the box if you like";
             }
-            // Initial text for ticker elements (will be updated by updateTicker)
-            if (tickerIntroElement) {
-                tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
-            }
-            if (tickerUnitElement) {
-                tickerUnitElement.textContent = "MINUTES";
-            }
-            if (tickerSecondsElement) {
-                tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
-            }
+            
+            // Set initial ticker text (will be updated by updateTicker almost immediately)
+            if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
+            if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
+            if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
         }
         
         function handleDateChange() {
             const dateValue = electionDateInputElement.value;
-            if (dateValue) { // Check if a date is actually selected
+            if (dateValue && dateValue !== "") { 
                 governmentStartDate = new Date(dateValue + "T00:00:00Z");
-                // When date changes, reset explainer to be generic as it's no longer 2019 default
-                if (customTermExplainerElement) {
-                     customTermExplainerElement.textContent = "*based upon the selected start date. enter ur own 'full match' length in the box if you like.";
-                }
             } else {
-                // If date is cleared, revert to default and default explainer
+                // If date is cleared or invalid, revert to default
+                electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING; // Reset input visually
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
-                if (customTermExplainerElement) {
-                    customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). enter ur own term length in the box if you like";
-                }
             }
+            // The explainer text no longer changes dynamically.
             updateTicker();
         }
 
 
         function updateTicker() {
             const now = new Date();
+            // Ensure governmentStartDate is a valid Date object before getTime
+            if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
+                // Fallback if governmentStartDate is somehow invalid, though handleDateChange should prevent this
+                governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
+            }
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
             
-            // Term length for calculation from input
-            let currentTermYears = DEFAULT_TERM_YEARS_FLOAT; // Fallback to default
+            let currentTermYears = DEFAULT_TERM_YEARS_FLOAT; 
             const inputValue = parseFloat(termLengthInputElement.value);
             if (!isNaN(inputValue) && inputValue > 0) {
                 currentTermYears = inputValue;
             } else {
-                // If input is invalid, reset it to the default for calculation robustness
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
+                 currentTermYears = DEFAULT_TERM_YEARS_FLOAT; // Ensure calculation uses a valid number
             }
             const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
-            // Handle future start dates (countdown)
             if (elapsedMilliseconds < 0) {
                 tickerIntroElement.textContent = "THE POLITICAL MATCH STARTS IN...";
                 const timeToStartMs = Math.abs(elapsedMilliseconds);
@@ -408,13 +371,12 @@
                 const seconds = Math.floor((timeToStartMs % (1000 * 60)) / 1000);
 
                 gameMinutesBigElement.textContent = String(days).padStart(2,'0') ; 
-                tickerUnitElement.textContent = (days === 1) ? "DAY TIL KICK OFF" : "DAYS TIL KICK OFF";
+                tickerUnitElement.textContent = (days === 1) ? "day til kick off" : "days til kick off"; // lowercase
                 tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}h ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s)<span class="term-explainer-asterisk">*</span>`;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " "; // Keep blank as per original logic for non-fulltime
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " "; 
                 return; 
             }
 
-            // Normal operation (counting up from start date)
             const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0;
             let matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
 
@@ -424,54 +386,39 @@
             if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
-
-                if (tickerIntroElement) {
-                    tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
-                }
-                if (gameMinutesBigElement) {
-                    gameMinutesBigElement.textContent = String(gameMinutes);
-                }
-                if (tickerUnitElement) {
-                    tickerUnitElement.textContent = (gameMinutes === 1) ? "MINUTE." : "MINUTES.";
-                }
-                if (tickerSecondsElement) {
-                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.<span class=\"term-explainer-asterisk\">*</span>";
-                }
-                if (halfTimeMessageElement) {
-                    halfTimeMessageElement.textContent = "FULL TIME";
-                }
+                if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
+                if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes);
+                if (tickerUnitElement) tickerUnitElement.textContent = (gameMinutes === 1) ? "minute." : "minutes."; // lowercase
+                if (tickerSecondsElement) tickerSecondsElement.innerHTML = "and " + String(gameSeconds).padStart(2, '0') + " fucking seconds.<span class=\"term-explainer-asterisk\">*</span>"; // lowercase
+                if (halfTimeMessageElement) halfTimeMessageElement.textContent = "FULL TIME"; // This can stay caps as it's a direct quote of a status
             } else {
-                if (tickerIntroElement) {
-                    tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
-                }
-                if (gameMinutesBigElement) {
-                    gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
-                }
-                if (tickerUnitElement) {
-                    tickerUnitElement.textContent = (gameMinutes === 1) ? "MINUTE" : "MINUTES";
-                }
-                if (tickerSecondsElement) {
-                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
-                }
-                if (halfTimeMessageElement) {
-                    halfTimeMessageElement.innerHTML = " "; // Non-breaking space, ensures the element keeps its height
-                }
+                if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
+                if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
+                if (tickerUnitElement) tickerUnitElement.textContent = (gameMinutes === 1) ? "minute" : "minutes"; // lowercase
+                if (tickerSecondsElement) tickerSecondsElement.innerHTML = "and " + String(gameSeconds).padStart(2, '0') + " fucking seconds<span class=\"term-explainer-asterisk\">*</span>"; // lowercase
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " "; 
             }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             setInitialInfo();
-            updateTicker(); // Initial call to display time immediately
-            const intervalId = setInterval(updateTicker, 1000); // Update every second
+            // Ensure governmentStartDate is set from the input's default value before the first updateTicker
+            const initialDateValue = electionDateInputElement.value;
+            if (initialDateValue && initialDateValue !== "") {
+                 governmentStartDate = new Date(initialDateValue + "T00:00:00Z");
+            } // else it keeps the JS global default
+
+            updateTicker(); 
+            const intervalId = setInterval(updateTicker, 1000); 
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', function() {
-                    updateTicker(); // Update ticker immediately on input change
+                    updateTicker(); 
                 });
                  termLengthInputElement.addEventListener('blur', function() {
                     const inputValueFloat = parseFloat(termLengthInputElement.value);
                     if (isNaN(inputValueFloat) || inputValueFloat <= 0) {
-                        termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2); // Reset to default if invalid
+                        termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2); 
                         updateTicker();
                     }
                 });
@@ -479,6 +426,12 @@
 
             if (electionDateInputElement) {
                 electionDateInputElement.addEventListener('change', handleDateChange);
+                // Also handle manual clear or invalid input in date field
+                electionDateInputElement.addEventListener('blur', function() {
+                    if (!electionDateInputElement.value || electionDateInputElement.value === "") {
+                         handleDateChange(); // This will reset to default if field is cleared
+                    }
+                });
             }
         });
     </script>
