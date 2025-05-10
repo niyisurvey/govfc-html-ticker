@@ -248,7 +248,7 @@
             <p id="half-time-message"> </p>
 
             <div id="custom-term-section">
-                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:</p>
+                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years).      u can chnage stuff, if you like:</p>
 
                 <label for="term-length-input">term length</label>
                 <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years">
@@ -269,9 +269,8 @@
     </div>
 
     <script>
-        // Updated default start date to July 4th, 2024
         const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-05";
-        const DEFAULT_TERM_YEARS_FLOAT = 4.56; // This was already 4.56
+        const DEFAULT_TERM_YEARS_FLOAT = 4.56;
         const footballMatchDurationMinutes = 90;
 
         let governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
@@ -304,9 +303,9 @@
                 customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years).      u can chnage stuff, if you like:";
             }
 
-            if (tickerIntroElement) tickerIntroElement.textContent = "FFS IT'S ONLY FUCKING BEEN"; // Original casing
-            if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES"; // Uppercase
-            if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>"; // Uppercase
+            if (tickerIntroElement) tickerIntroElement.textContent = "FFS IT'S ONLY FUCKING BEEN";
+            if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
+            if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
         }
 
         function handleDateChange() {
@@ -323,27 +322,39 @@
         function updateTicker() {
             const now = new Date();
             if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
-                // Fallback if governmentStartDate is somehow invalid
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
-                if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_STRING;
+                if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING; // Corrected variable name
             }
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
 
-            let currentTermYears = DEFAULT_TERM_YEARS_FLOAT;
-            const inputValue = parseFloat(termLengthInputElement.value);
-            if (!isNaN(inputValue) && inputValue > 0) {
-                currentTermYears = inputValue;
-            } else {
-                termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
-                currentTermYears = DEFAULT_TERM_YEARS_FLOAT;
+            // --- MODIFIED SECTION FOR TERM LENGTH HANDLING ---
+            let calculatedTermYears = DEFAULT_TERM_YEARS_FLOAT; // This will be used for calculations
+            const termInputValueString = termLengthInputElement.value;
+            
+            // Only try to parse if the input string is not empty or just whitespace
+            if (termInputValueString.trim() !== "") {
+                const parsedTermYears = parseFloat(termInputValueString);
+                if (!isNaN(parsedTermYears) && parsedTermYears > 0) {
+                    calculatedTermYears = parsedTermYears; // Use the valid parsed value
+                }
+                // If termInputValueString is not empty but invalid (e.g., "abc", "0", "-1"),
+                // calculatedTermYears remains DEFAULT_TERM_YEARS_FLOAT.
+                // The input field's displayed text is NOT changed here.
             }
-            const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
+            // If termInputValueString is empty (user deleted content),
+            // calculatedTermYears remains DEFAULT_TERM_YEARS_FLOAT for the current calculation.
+            // The input field itself remains empty, as desired during editing.
+            // The 'blur' event listener on termLengthInputElement will handle resetting
+            // the displayed value to default if it's left empty or invalid.
+            // --- END OF MODIFIED SECTION ---
 
-            let introText = "FFS IT'S ONLY FUCKING BEEN"; 
-            let unitText = "MINUTES"; 
-            let secondsTextPrefix = "AND "; 
-            let secondsTextSuffix = " FUCKING SECONDS"; 
-            let halfTimeText = " "; 
+            const totalTermMilliseconds = calculatedTermYears * 365.25 * 24 * 60 * 60 * 1000;
+
+            let introText = "FFS IT'S ONLY FUCKING BEEN";
+            let unitText = "MINUTES";
+            let secondsTextPrefix = "AND ";
+            let secondsTextSuffix = " FUCKING SECONDS";
+            let halfTimeText = " ";
 
             if (elapsedMilliseconds < 0) {
                 introText = "THE POLITICAL MATCH STARTS IN...";
@@ -359,7 +370,7 @@
                 
                 if (tickerIntroElement) tickerIntroElement.textContent = introText;
                 if (tickerUnitElement) tickerUnitElement.textContent = unitText;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; 
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
                 return;
             }
 
@@ -373,16 +384,16 @@
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
                 introText = "FFS IT'S BEEN A FULL FUCKING";
-                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";  
+                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";
                 halfTimeText = "FULL TIME";
             } else {
                 unitText = (gameMinutes === 1) ? "MINUTE" : "MINUTES";
             }
 
-            if (tickerIntroElement) tickerIntroElement.textContent = introText; 
+            if (tickerIntroElement) tickerIntroElement.textContent = introText;
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
-            if (tickerUnitElement) tickerUnitElement.textContent = unitText; 
-            if (tickerSecondsElement) { 
+            if (tickerUnitElement) tickerUnitElement.textContent = unitText;
+            if (tickerSecondsElement) {
                 tickerSecondsElement.innerHTML = secondsTextPrefix + String(gameSeconds).padStart(2, '0') + secondsTextSuffix + "<span class=\"term-explainer-asterisk\">*</span>";
             }
             if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
@@ -391,7 +402,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             setInitialInfo();
             const initialDateValue = electionDateInputElement.value;
-            if (initialDateValue && initialDateValue !== "") { 
+            if (initialDateValue && initialDateValue !== "") {
                 governmentStartDate = new Date(initialDateValue + "T00:00:00Z");
             }
             updateTicker();
@@ -399,11 +410,14 @@
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', updateTicker);
+                // This 'blur' event listener is crucial for resetting to default
+                // if the field is left empty or with an invalid value.
+                // It was already correctly implemented in your original code.
                 termLengthInputElement.addEventListener('blur', function() {
                     const inputValueFloat = parseFloat(termLengthInputElement.value);
                     if (isNaN(inputValueFloat) || inputValueFloat <= 0) {
                         termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
-                        updateTicker(); 
+                        updateTicker(); // Update the ticker display with the reset value
                     }
                 });
             }
@@ -412,7 +426,7 @@
                 electionDateInputElement.addEventListener('change', handleDateChange);
                 electionDateInputElement.addEventListener('blur', function() {
                     if (!electionDateInputElement.value || electionDateInputElement.value === "") {
-                        handleDateChange(); 
+                        handleDateChange();
                     }
                 });
             }
