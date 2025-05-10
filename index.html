@@ -28,15 +28,15 @@
 
         #intro-question {
             font-style: italic;
-            font-size: 1.6em;
-            color: #88c0d0;
+            font-size: 1.0em; /* CHANGED: Made smaller */
+            color: #88c0d0; /* Retained blue color */
             margin-bottom: 20px;
             margin-top: 10px;
             line-height: 1.4;
             text-transform: lowercase;
         }
 
-        #custom-term-section label  {
+        #custom-term-section label {
             font-size: 0.9em;
             color: #b0b0b0;
             margin-bottom: 8px;
@@ -66,7 +66,7 @@
         }
 
         #ticker-intro {
-            font-size: 1.5em;
+            font-size: 1.8em; /* CHANGED: Made bigger */
             color: #b0b0b0;
             margin: 0 0 5px 0;
             font-weight: bold;
@@ -85,43 +85,43 @@
         }
 
         #ticker-unit {
-            font-size: 2.2em;
+            font-size: 2.5em; /* CHANGED: Made bigger */
             color: #b0b0b0;
             margin: 0;
             font-weight: bold;
             line-height: 1.2;
             margin-top: -0.1em;
-            text-transform: uppercase; /* Ensuring this is uppercase */
+            text-transform: uppercase;
         }
 
         #ticker-seconds {
-            font-size: 1.5em;
+            font-size: 1.8em; /* CHANGED: Made bigger */
             color: #FFFFFF;
             margin: 5px 0 0 0;
             font-weight: bold;
             line-height: 1.2;
-            text-transform: uppercase; /* Ensuring this is uppercase */
+            text-transform: uppercase;
         }
-        .term-explainer-asterisk { /* This is part of ticker-seconds, so it will also be uppercase unless styled separately */
-            font-size: 0.8em; /* Relative to parent, effectively 1.5em * 0.8 = 1.2em */
+        .term-explainer-asterisk {
+            font-size: 0.8em;
             vertical-align: super;
             margin-left: 2px;
             color: #aaaaaa;
             font-style: normal;
             font-weight: normal;
-            text-transform: none; /* Keep asterisk and its surrounding span normal case */
+            text-transform: none;
         }
 
         #half-time-message {
             font-size: 1.4em;
             color: #FFEB3B;
-            height: 1.4em; /* Set height to match font-size to take space only when text is present */
-            line-height: 1.4em; /* Consistent line height */
-            min-height: 0; /* Allow it to be truly small if empty */
+            height: 1.4em;
+            line-height: 1.4em;
+            min-height: 0;
             font-weight: bold;
             margin-top: 1px;
-            margin-bottom: 15px; /* Reduced margin to lessen the gap */
-            overflow: hidden; /* Prevent &nbsp; from causing unexpected overflow if font is huge */
+            margin-bottom: 15px;
+            overflow: hidden;
         }
 
         #custom-term-section {
@@ -157,14 +157,14 @@
         }
         #term-length-input::-webkit-outer-spin-button,
         #term-length-input::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
+            -webkit-appearance: none;
+            margin: 0;
         }
         #term-length-input[type=number] {
-          -moz-appearance: textfield;
+            -moz-appearance: textfield;
         }
 
-        .details-section { /* This applies directly to <p class="details-section"> */
+        .details-section {
             background-color: transparent;
             padding: 10px;
             border-radius: 0;
@@ -177,7 +177,6 @@
             line-height: 1.5;
             color: #707070;
         }
-        /* Removed .details-section p rule as it was redundant for <p class="details-section"> */
 
         footer {
             margin-top: 30px;
@@ -199,40 +198,41 @@
 
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
-            #ticker-unit { font-size: 2em; }
-            #ticker-seconds { font-size: 1.3em; }
-            #intro-question { font-size: 1.5em; }
+            #ticker-unit { font-size: 2.2em; } /* Adjusted */
+            #ticker-seconds { font-size: 1.5em; } /* Adjusted */
+            #ticker-intro { font-size: 1.6em; } /* Adjusted */
+            #intro-question { font-size: 0.9em; } /* Adjusted for consistency */
         }
         @media (max-width: 900px) {
-             #game-minutes-big { font-size: 15em; }
-             #ticker-unit { font-size: 1.8em; }
-             #ticker-seconds { font-size: 1.3em; }
-             #ticker-intro { font-size: 1.3em; }
-             #intro-question { font-size: 1.4em; }
+            #game-minutes-big { font-size: 15em; }
+            #ticker-unit { font-size: 2.0em; } /* Adjusted */
+            #ticker-seconds { font-size: 1.5em; } /* Adjusted */
+            #ticker-intro { font-size: 1.4em; } /* Adjusted */
+            #intro-question { font-size: 0.9em; } /* Adjusted */
         }
         @media (max-width: 700px) {
-            #ticker-intro { font-size: 1.2em; }
+            #ticker-intro { font-size: 1.3em; } /* Adjusted */
             #game-minutes-big { font-size: 12em; }
-            #ticker-unit { font-size: 1.6em; }
-            #ticker-seconds { font-size: 1.2em; }
+            #ticker-unit { font-size: 1.8em; } /* Adjusted */
+            #ticker-seconds { font-size: 1.4em; } /* Adjusted */
             #half-time-message { font-size: 1.2em; height: 1.2em; line-height: 1.2em;}
-            #intro-question { font-size: 1.2em; }
+            #intro-question { font-size: 0.8em; } /* Adjusted */
         }
         @media (max-width: 500px) {
-            #ticker-intro { font-size: 1em; }
+            #ticker-intro { font-size: 1.1em; } /* Adjusted */
             #game-minutes-big { font-size: 9em; }
-            #ticker-unit { font-size: 1.4em; }
-            #ticker-seconds { font-size: 1em; }
-            #intro-question { font-size: 1.1em; }
+            #ticker-unit { font-size: 1.6em; } /* Adjusted */
+            #ticker-seconds { font-size: 1.1em; } /* Adjusted */
+            #intro-question { font-size: 0.8em; } /* Adjusted */
             #custom-term-explainer { font-size: 0.75em; }
             #election-date-input { min-width: 180px; font-size: 0.9em;}
         }
         @media (max-width: 380px) {
-             #game-minutes-big { font-size: 7em; }
-             #ticker-unit { font-size: 1.2em; }
-             #ticker-seconds { font-size: 0.9em; }
-             #ticker-intro { font-size: 0.9em; }
-             #intro-question { font-size: 1em; }
+            #game-minutes-big { font-size: 7em; }
+            #ticker-unit { font-size: 1.4em; } /* Adjusted */
+            #ticker-seconds { font-size: 1.0em; } /* Adjusted */
+            #ticker-intro { font-size: 1.0em; } /* Adjusted */
+            #intro-question { font-size: 0.7em; } /* Adjusted */
         }
     </style>
 </head>
@@ -245,7 +245,7 @@
                 <p id="ticker-intro">FOR FUCKS SAKE IT'S ONLY FUCKING BEEN</p>
                 <div id="game-minutes-big">00</div>
                 <p id="ticker-unit">MINUTES</p> <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p> </div>
-            <p id="half-time-message"> </p>
+            <p id="half-time-message"> </p>
 
             <div id="custom-term-section">
                 <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:</p>
@@ -301,7 +301,7 @@
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
             }
             if (customTermExplainerElement) {
-                 customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:";
+                customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:";
             }
 
             if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN"; // Original casing
@@ -339,12 +339,11 @@
             }
             const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
-            // Text for ticker elements, ensuring ALL CAPS where requested
-            let introText = "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN"; // Default from HTML
-            let unitText = "MINUTES"; // Default from HTML, uppercase
-            let secondsTextPrefix = "AND "; // Uppercase
-            let secondsTextSuffix = " FUCKING SECONDS"; // Uppercase
-            let halfTimeText = " "; // Default non-breaking space
+            let introText = "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN"; 
+            let unitText = "MINUTES"; 
+            let secondsTextPrefix = "AND "; 
+            let secondsTextSuffix = " FUCKING SECONDS"; 
+            let halfTimeText = " "; 
 
             if (elapsedMilliseconds < 0) {
                 introText = "THE POLITICAL MATCH STARTS IN...";
@@ -356,11 +355,11 @@
 
                 if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(days).padStart(2,'0') ;
                 unitText = (days === 1) ? "DAY TIL KICK OFF" : "DAYS TIL KICK OFF";
-                if (tickerSecondsElement) tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}H ${String(minutes).padStart(2,'0')}M ${String(seconds).padStart(2,'0')}S)<span class="term-explainer-asterisk">*</span>`; // This part is not all caps by design
+                if (tickerSecondsElement) tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}H ${String(minutes).padStart(2,'0')}M ${String(seconds).padStart(2,'0')}S)<span class="term-explainer-asterisk">*</span>`;
                 
                 if (tickerIntroElement) tickerIntroElement.textContent = introText;
                 if (tickerUnitElement) tickerUnitElement.textContent = unitText;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; // Reset half-time message for countdown
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; 
                 return;
             }
 
@@ -374,18 +373,16 @@
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
                 introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
-                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES."; 
+                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";  
                 halfTimeText = "FULL TIME";
             } else {
-                // introText remains "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN"
                 unitText = (gameMinutes === 1) ? "MINUTE" : "MINUTES";
-                // halfTimeText remains "&nbsp;" unless it's exactly half time, which isn't explicitly handled here beyond this.
             }
 
-            if (tickerIntroElement) tickerIntroElement.textContent = introText; // Original casing
+            if (tickerIntroElement) tickerIntroElement.textContent = introText; 
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
-            if (tickerUnitElement) tickerUnitElement.textContent = unitText; // Uppercase handled here
-            if (tickerSecondsElement) { // Uppercase handled here
+            if (tickerUnitElement) tickerUnitElement.textContent = unitText; 
+            if (tickerSecondsElement) { 
                 tickerSecondsElement.innerHTML = secondsTextPrefix + String(gameSeconds).padStart(2, '0') + secondsTextSuffix + "<span class=\"term-explainer-asterisk\">*</span>";
             }
             if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
@@ -394,8 +391,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             setInitialInfo();
             const initialDateValue = electionDateInputElement.value;
-            if (initialDateValue && initialDateValue !== "") { // Ensure initial date from input is used if present
-                 governmentStartDate = new Date(initialDateValue + "T00:00:00Z");
+            if (initialDateValue && initialDateValue !== "") { 
+                governmentStartDate = new Date(initialDateValue + "T00:00:00Z");
             }
             updateTicker();
             setInterval(updateTicker, 1000);
@@ -406,7 +403,7 @@
                     const inputValueFloat = parseFloat(termLengthInputElement.value);
                     if (isNaN(inputValueFloat) || inputValueFloat <= 0) {
                         termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
-                        updateTicker(); // Ensure ticker updates with default if invalid input
+                        updateTicker(); 
                     }
                 });
             }
@@ -415,7 +412,7 @@
                 electionDateInputElement.addEventListener('change', handleDateChange);
                 electionDateInputElement.addEventListener('blur', function() {
                     if (!electionDateInputElement.value || electionDateInputElement.value === "") {
-                         handleDateChange(); // Revert to default or last valid if cleared
+                        handleDateChange(); 
                     }
                 });
             }
