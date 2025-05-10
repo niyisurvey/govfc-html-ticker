@@ -66,7 +66,7 @@
         }
 
         #ticker-intro {
-            font-size: 2.5em; /* CHANGED: Made even bigger */
+            font-size: 2.3em; /* CHANGED: Made a TINY bit smaller */
             color: #b0b0b0;
             margin: 0 0 5px 0;
             font-weight: bold;
@@ -75,7 +75,7 @@
 
         #game-minutes-big {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 20em; /* This is already very large, consider if this also needs to scale */
+            font-size: 20em;
             color: #FFFFFF;
             line-height: 0.9;
             font-weight: bold;
@@ -85,7 +85,7 @@
         }
 
         #ticker-unit {
-            font-size: 3.2em; /* CHANGED: Made even bigger */
+            font-size: 3.2em;
             color: #b0b0b0;
             margin: 0;
             font-weight: bold;
@@ -95,7 +95,7 @@
         }
 
         #ticker-seconds {
-            font-size: 2.5em; /* CHANGED: Made even bigger */
+            font-size: 2.5em;
             color: #FFFFFF;
             margin: 5px 0 0 0;
             font-weight: bold;
@@ -103,7 +103,7 @@
             text-transform: uppercase;
         }
         .term-explainer-asterisk {
-            font-size: 0.6em; /* Adjusted to be relative to a larger parent */
+            font-size: 0.6em;
             vertical-align: super;
             margin-left: 2px;
             color: #aaaaaa;
@@ -198,40 +198,40 @@
 
         @media (max-width: 1200px) {
             #game-minutes-big { font-size: 18em; }
-            #ticker-unit { font-size: 2.8em; } /* Adjusted */
-            #ticker-seconds { font-size: 2.2em; } /* Adjusted */
-            #ticker-intro { font-size: 2.2em; } /* Adjusted */
+            #ticker-unit { font-size: 2.8em; }
+            #ticker-seconds { font-size: 2.2em; }
+            #ticker-intro { font-size: 2.0em; } /* Adjusted */
             #intro-question { font-size: 0.9em; }
         }
         @media (max-width: 900px) {
             #game-minutes-big { font-size: 15em; }
-            #ticker-unit { font-size: 2.5em; } /* Adjusted */
-            #ticker-seconds { font-size: 2.0em; } /* Adjusted */
-            #ticker-intro { font-size: 1.9em; } /* Adjusted */
+            #ticker-unit { font-size: 2.5em; }
+            #ticker-seconds { font-size: 2.0em; }
+            #ticker-intro { font-size: 1.75em; } /* Adjusted */
             #intro-question { font-size: 0.9em; }
         }
         @media (max-width: 700px) {
-            #ticker-intro { font-size: 1.7em; } /* Adjusted */
+            #ticker-intro { font-size: 1.6em; } /* Adjusted */
             #game-minutes-big { font-size: 12em; }
-            #ticker-unit { font-size: 2.2em; } /* Adjusted */
-            #ticker-seconds { font-size: 1.8em; } /* Adjusted */
+            #ticker-unit { font-size: 2.2em; }
+            #ticker-seconds { font-size: 1.8em; }
             #half-time-message { font-size: 1.2em; height: 1.2em; line-height: 1.2em;}
             #intro-question { font-size: 0.8em; }
         }
         @media (max-width: 500px) {
-            #ticker-intro { font-size: 1.4em; } /* Adjusted */
+            #ticker-intro { font-size: 1.3em; } /* Adjusted */
             #game-minutes-big { font-size: 9em; }
-            #ticker-unit { font-size: 1.9em; } /* Adjusted */
-            #ticker-seconds { font-size: 1.4em; } /* Adjusted */
+            #ticker-unit { font-size: 1.9em; }
+            #ticker-seconds { font-size: 1.4em; }
             #intro-question { font-size: 0.8em; }
             #custom-term-explainer { font-size: 0.75em; }
             #election-date-input { min-width: 180px; font-size: 0.9em;}
         }
         @media (max-width: 380px) {
             #game-minutes-big { font-size: 7em; }
-            #ticker-unit { font-size: 1.6em; } /* Adjusted */
-            #ticker-seconds { font-size: 1.2em; } /* Adjusted */
-            #ticker-intro { font-size: 1.2em; } /* Adjusted */
+            #ticker-unit { font-size: 1.6em; }
+            #ticker-seconds { font-size: 1.2em; }
+            #ticker-intro { font-size: 1.1em; } /* Adjusted */
             #intro-question { font-size: 0.7em; }
         }
     </style>
@@ -325,7 +325,7 @@
             if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
                 // Fallback if governmentStartDate is somehow invalid
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
-                if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
+                if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_STRING;
             }
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
 
@@ -420,3 +420,4 @@
     </script>
 </body>
 </html>
+EOF
