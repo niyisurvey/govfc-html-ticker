@@ -242,7 +242,7 @@
             <p id="intro-question">If this parliamentary term were a football match, how long have the current uk government been in power?</p>
 
             <div class="ticker-wrapper">
-                <p id="ticker-intro">FFS IT'S ONLY FUCKING BEEN</p>
+                <p id="ticker-intro">FOR FUCKS SAKE IT'S ONLY FUCKING BEEN</p>
                 <div id="game-minutes-big">00</div>
                 <p id="ticker-unit">MINUTES</p> <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p> </div>
             <p id="half-time-message"> </p>
@@ -303,7 +303,7 @@
                 customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years).      u can chnage stuff, if you like:";
             }
 
-            if (tickerIntroElement) tickerIntroElement.textContent = "FFS IT'S ONLY FUCKING BEEN";
+            if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN";
             if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
             if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
         }
@@ -350,7 +350,7 @@
 
             const totalTermMilliseconds = calculatedTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
-            let introText = "FFS IT'S ONLY FUCKING BEEN";
+            let introText = "FOR FUCKS SAKE IT'S ONLY FUCKING BEEN";
             let unitText = "MINUTES";
             let secondsTextPrefix = "AND ";
             let secondsTextSuffix = " FUCKING SECONDS";
@@ -383,7 +383,7 @@
             if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
-                introText = "FFS IT'S BEEN A FULL FUCKING";
+                introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
                 unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";
                 halfTimeText = "FULL TIME";
             } else {
