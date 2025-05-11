@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tick tock</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* MODIFIED: Changed from 'center' to 'flex-start' */
+            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 95%;
+        }
+
+        #intro-question {
+            font-style: italic;
+            font-size: 1.6em;
+            color: #88c0d0;
+            margin-bottom: 30px; /* This adds space below this element */
+            margin-top: 10px; /* ADDED: You might want a small margin here so text isn't flush with the very top */
+            line-height: 1.4;
+        }
+
+        /* Ticker Area Styling */
+        .ticker-wrapper {
+            margin: 10px 0;
+        }
+
+        #ticker-intro {
+            font-size: 1.5em;
+            color: #b0b0b0;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        #game-minutes-big {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 20em;
+            color: #FFFFFF;
+            line-height: 0.9;
+            font-weight: bold;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        #ticker-unit { /* For "MINUTES" */
+            font-size: 2.2em;
+            color: #b0b0b0;
+            margin: 0;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-top: -0.1em;
+        }
+
+        #ticker-seconds { /* For "AND XXX FUCKING SECONDS" */
+            font-size: 1.5em;
+            color: #FFFFFF;
+            margin: 5px 0 0 0;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        .term-explainer-asterisk {
+            font-size: 0.8em;
+            vertical-align: super;
+            margin-left: 2px;
+            color: #aaaaaa;
+            font-style: normal;
+            font-weight: normal;
+        }
+
+
+        #half-time-message {
+            font-size: 1.4em;
+            color: #FFEB3B;
+            min-height: 1.5em;
+            font-weight: bold;
+            margin-top: 1px;
+            margin-bottom: 30px;
+        }
+
+         /* Custom Term Section Styling */
+        #custom-term-section {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 20px;
+        }
+
+        #custom-term-explainer {
+            font-size: 0.8em;
+            color: #aaaaaa;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-transform: lowercase;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #term-length-input {
+            font-size: 1.1em;
+            padding: 8px 12px;
+            width: 80px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            border: 1px solid #454545;
+            border-radius: 4px;
+            text-align: center;
+        }
+        #term-length-input::-webkit-outer-spin-button,
+        #term-length-input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        #term-length-input[type=number] {
+          -moz-appearance: textfield;
+        }
+
+
+        /* "Super Discreet" Personal Details Section */
+        .details-section {
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /* Default P in this section */
+        .details-section p {
+            font-size: 0.8em;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            color: #707070;
+        }
+
+        .details-section .contact-links {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .details-section .contact-links a {
+            color: #5c7a8c;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        .details-section .contact-links a:hover {
+            text-decoration: underline;
+            color: #79aacc;
+        }
+
+         /* Style for the personal info line */
+        #personal-info {
+            font-size: 0.65em;
+            color: #aaaaaa;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            padding-bottom: 20px; /* ADDED: Small padding at the very bottom of the page */
+            font-size: 0.7em;
+            color: #454545;
+        }
+        footer p {
+            margin-bottom: 3px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            #game-minutes-big { font-size: 18em; }
+            #ticker-unit { font-size: 2em; }
+            #ticker-seconds { font-size: 1.3em; }
+            #intro-question { font-size: 1.5em; }
+        }
+        @media (max-width: 900px) {
+             #game-minutes-big { font-size: 15em; }
+             #ticker-unit { font-size: 1.8em; }
+             #ticker-seconds { font-size: 1.3em; }
+             #ticker-intro { font-size: 1.3em; }
+             #intro-question { font-size: 1.4em; }
+        }
+        @media (max-width: 700px) {
+            #ticker-intro { font-size: 1.2em; }
+            #game-minutes-big { font-size: 12em; }
+            #ticker-unit { font-size: 1.6em; }
+            #ticker-seconds { font-size: 1.2em; }
+            #half-time-message { font-size: 1.2em; }
+            #intro-question { font-size: 1.2em; }
+        }
+        @media (max-width: 500px) {
+            #ticker-intro { font-size: 1em; }
+            #game-minutes-big { font-size: 9em; }
+            #ticker-unit { font-size: 1.4em; }
+            #ticker-seconds { font-size: 1em; }
+            #intro-question { font-size: 1.1em; }
+            #custom-term-explainer { font-size: 0.75em; }
+            .details-section .contact-links a { font-size: 0.75em; }
+            #personal-info { font-size: 0.65em; }
+        }
+        @media (max-width: 380px) {
+             #game-minutes-big { font-size: 7em; }
+             #ticker-unit { font-size: 1.2em; }
+             #ticker-seconds { font-size: 0.9em; }
+             #ticker-intro { font-size: 0.9em; }
+             #intro-question { font-size: 1em; }
+             #personal-info { font-size: 0.6em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <p id="intro-question">If this parliamentary term were a football match, how long have the current UK government been in power?</p>
+
+            <div class="ticker-wrapper">
+                <p id="ticker-intro">FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN</p>
+                <div id="game-minutes-big">00</div>
+                <p id="ticker-unit">MINUTES</p>
+                <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p>
+            </div>
+            <p id="half-time-message"> </p>
+
+            <div id="custom-term-section">
+                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). enter ur own term length in the box if you like</p>
+                <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="Custom term length in years">
+            </div>
+            <p class="details-section">this is a personal project made for the handful of people that keep me sane all week 🎙️💜🗣️</p>
+
+        </main>
+
+    
+        <footer>
+            <p>© <span id="current-year"></span> govfc.co.uk - if it's not broken lololol.</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const governmentStartDate = new Date("2024-07-05T00:00:00Z"); // Note: This date is in the past from current date.
+        const footballMatchDurationMinutes = 90;
+        const DEFAULT_TERM_YEARS = 4.56;
+
+        // --- DOM Elements ---
+        const tickerIntroElement = document.getElementById('ticker-intro');
+        const gameMinutesBigElement = document.getElementById('game-minutes-big');
+        const tickerUnitElement = document.getElementById('ticker-unit');
+        const tickerSecondsElement = document.getElementById('ticker-seconds');
+        const halfTimeMessageElement = document.getElementById('half-time-message');
+        const currentYearElement = document.getElementById('current-year');
+        const termLengthInputElement = document.getElementById('term-length-input');
+
+        function setInitialInfo() {
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+            if (tickerIntroElement) {
+                tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
+            }
+            if (tickerUnitElement) {
+                tickerUnitElement.textContent = "MINUTES";
+            }
+            if (tickerSecondsElement) {
+                tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
+            }
+             if (termLengthInputElement) {
+                 termLengthInputElement.value = DEFAULT_TERM_YEARS.toFixed(2);
+             }
+        }
+
+        function updateTicker() {
+            const now = new Date();
+            let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
+            
+            // If the governmentStartDate is in the future relative to 'now', elapsedMilliseconds will be negative.
+            // For a countdown *to* a future start, this logic would be different.
+            // Assuming the intention is to count *from* a past start date:
+            if (elapsedMilliseconds < 0) elapsedMilliseconds = 0; // Show 0 if start date hasn't been reached or is same as now.
+
+            let currentTermYears = DEFAULT_TERM_YEARS;
+            if (termLengthInputElement) {
+                const inputValue = parseFloat(termLengthInputElement.value);
+                if (!isNaN(inputValue) && inputValue > 0) {
+                    currentTermYears = inputValue;
+                }
+            }
+            const totalTermMilliseconds = currentTermYears * 365.25 * 24 * 60 * 60 * 1000;
+
+            const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0;
+            let matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
+
+            let gameMinutes = Math.floor(matchTimeTotalMinutes);
+            let gameSeconds = Math.floor((matchTimeTotalMinutes - gameMinutes) * 60);
+
+            if (gameMinutes >= footballMatchDurationMinutes) {
+                gameMinutes = footballMatchDurationMinutes;
+                gameSeconds = 0;
+
+                if (tickerIntroElement) {
+                    tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S BEEN A FULL FUCKING";
+                }
+                if (gameMinutesBigElement) {
+                    gameMinutesBigElement.textContent = String(gameMinutes);
+                }
+                if (tickerUnitElement) {
+                    tickerUnitElement.textContent = "MINUTES.";
+                }
+                if (tickerSecondsElement) {
+                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS.<span class=\"term-explainer-asterisk\">*</span>";
+                }
+                if (halfTimeMessageElement) {
+                    halfTimeMessageElement.textContent = "FULL TIME";
+                }
+            } else {
+                if (tickerIntroElement) {
+                    tickerIntroElement.textContent = "FOR FUCKS SAKE  IT'S ONLY FUCKING BEEN";
+                }
+                if (gameMinutesBigElement) {
+                    gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
+                }
+                if (tickerUnitElement) {
+                    tickerUnitElement.textContent = "MINUTES";
+                }
+                if (tickerSecondsElement) {
+                    tickerSecondsElement.innerHTML = "AND " + String(gameSeconds).padStart(2, '0') + " FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
+                }
+                if (halfTimeMessageElement) {
+                    halfTimeMessageElement.innerHTML = " "; // This is a non-breaking space, ensures the element keeps its height
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setInitialInfo();
+            updateTicker(); // Initial call to display time immediately
+            const intervalId = setInterval(updateTicker, 1000); // Update every second
+
+            if (termLengthInputElement) {
+                termLengthInputElement.addEventListener('input', function() {
+                    updateTicker(); // Update ticker immediately on input change
+                });
+            }
+        });
+    </script>
+</body>
+</html>
