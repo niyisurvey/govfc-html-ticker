@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tick tock</title>
-    <style>
+    <title>UK Government Term Length as a Football Match - govfc.co.uk</title> <meta name="description" content="See how long the current UK government's parliamentary term has lasted, visualised as a football match. Compare elapsed time to a standard match duration based on customisable dates and term lengths."> <style>
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -26,12 +25,19 @@
             max-width: 95%;
         }
 
+        h1 { /* ADDED: Styling for the new H1 tag */
+            font-size: 1.8em;
+            color: #88c0d0;
+            margin: 20px 0 10px 0;
+            line-height: 1.3;
+        }
+
         #intro-question {
             font-style: italic;
             font-size: 1.0em;
             color: #88c0d0;
             margin-bottom: 20px;
-            margin-top: 10px;
+            margin-top: 10px; /* Adjusted margin top */
             line-height: 1.4;
             text-transform: lowercase;
         }
@@ -66,7 +72,7 @@
         }
 
         #ticker-intro {
-            font-size: 2.3em; /* CHANGED: Made a TINY bit smaller */
+            font-size: 2.3em;
             color: #b0b0b0;
             margin: 0 0 5px 0;
             font-weight: bold;
@@ -200,45 +206,52 @@
             #game-minutes-big { font-size: 18em; }
             #ticker-unit { font-size: 2.8em; }
             #ticker-seconds { font-size: 2.2em; }
-            #ticker-intro { font-size: 2.0em; } /* Adjusted */
+            #ticker-intro { font-size: 2.0em; }
             #intro-question { font-size: 0.9em; }
+             h1 { font-size: 1.6em; } /* Responsive H1 */
         }
         @media (max-width: 900px) {
             #game-minutes-big { font-size: 15em; }
             #ticker-unit { font-size: 2.5em; }
             #ticker-seconds { font-size: 2.0em; }
-            #ticker-intro { font-size: 1.75em; } /* Adjusted */
+            #ticker-intro { font-size: 1.75em; }
             #intro-question { font-size: 0.9em; }
+             h1 { font-size: 1.5em; } /* Responsive H1 */
         }
         @media (max-width: 700px) {
-            #ticker-intro { font-size: 1.6em; } /* Adjusted */
+            #ticker-intro { font-size: 1.6em; }
             #game-minutes-big { font-size: 12em; }
             #ticker-unit { font-size: 2.2em; }
             #ticker-seconds { font-size: 1.8em; }
             #half-time-message { font-size: 1.2em; height: 1.2em; line-height: 1.2em;}
             #intro-question { font-size: 0.8em; }
+             h1 { font-size: 1.4em; } /* Responsive H1 */
         }
         @media (max-width: 500px) {
-            #ticker-intro { font-size: 1.3em; } /* Adjusted */
+            #ticker-intro { font-size: 1.3em; }
             #game-minutes-big { font-size: 9em; }
             #ticker-unit { font-size: 1.9em; }
             #ticker-seconds { font-size: 1.4em; }
             #intro-question { font-size: 0.8em; }
             #custom-term-explainer { font-size: 0.75em; }
             #election-date-input { min-width: 180px; font-size: 0.9em;}
+             h1 { font-size: 1.2em; } /* Responsive H1 */
         }
         @media (max-width: 380px) {
             #game-minutes-big { font-size: 7em; }
             #ticker-unit { font-size: 1.6em; }
             #ticker-seconds { font-size: 1.2em; }
-            #ticker-intro { font-size: 1.1em; } /* Adjusted */
+            #ticker-intro { font-size: 1.1em; }
             #intro-question { font-size: 0.7em; }
+             h1 { font-size: 1em; } /* Responsive H1 */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <main>
+            <h1>UK Government Term Timer: Parliamentary Term as a Football Match</h1>
+
             <p id="intro-question">If this parliamentary term were a football match, how long have the current uk government been in power?</p>
 
             <div class="ticker-wrapper">
@@ -248,18 +261,13 @@
             <p id="half-time-message"> </p>
 
             <div id="custom-term-section">
-                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years).      u can chnage stuff, if you like:</p>
-
-                <label for="term-length-input">term length</label>
-                <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years">
+                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:</p> <label for="term-length-input">term length (years)</label> <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years">
 
                 <label for="election-date-input">term start date</label>
                 <input type="date" id="election-date-input" aria-label="term start date">
             </div>
 
-            <p class="details-section">this is a personal project made for the small handful of people that keep me sane every week 🎙️💜🗣️</p>
-
-        </main>
+            <p class="details-section">This site visualises the duration of the current UK parliamentary term as a 90-minute football match. It is a personal project.</p> </main>
 
 
         <footer>
@@ -300,17 +308,21 @@
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
             }
             if (customTermExplainerElement) {
-                customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years).      u can chnage stuff, if you like:";
+                customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:"; // Corrected spacing
             }
 
+            // Set initial display text using the elements directly
             if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S ONLY BEEN";
+            if (gameMinutesBigElement) gameMinutesBigElement.textContent = "00";
             if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
             if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
+            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " "; // Ensure it's empty initially
         }
 
         function handleDateChange() {
             const dateValue = electionDateInputElement.value;
             if (dateValue && dateValue !== "") {
+                // Use UTC date to avoid timezone issues affecting day calculation
                 governmentStartDate = new Date(dateValue + "T00:00:00Z");
             } else {
                 electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
@@ -321,32 +333,22 @@
 
         function updateTicker() {
             const now = new Date();
-            if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
+            // Ensure governmentStartDate is a valid Date object
+             if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
-                if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING; // Corrected variable name
+                if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
             }
             let elapsedMilliseconds = now.getTime() - governmentStartDate.getTime();
 
-            // --- MODIFIED SECTION FOR TERM LENGTH HANDLING ---
-            let calculatedTermYears = DEFAULT_TERM_YEARS_FLOAT; // This will be used for calculations
+            let calculatedTermYears = DEFAULT_TERM_YEARS_FLOAT;
             const termInputValueString = termLengthInputElement.value;
-            
-            // Only try to parse if the input string is not empty or just whitespace
+
             if (termInputValueString.trim() !== "") {
                 const parsedTermYears = parseFloat(termInputValueString);
                 if (!isNaN(parsedTermYears) && parsedTermYears > 0) {
-                    calculatedTermYears = parsedTermYears; // Use the valid parsed value
+                    calculatedTermYears = parsedTermYears;
                 }
-                // If termInputValueString is not empty but invalid (e.g., "abc", "0", "-1"),
-                // calculatedTermYears remains DEFAULT_TERM_YEARS_FLOAT.
-                // The input field's displayed text is NOT changed here.
             }
-            // If termInputValueString is empty (user deleted content),
-            // calculatedTermYears remains DEFAULT_TERM_YEARS_FLOAT for the current calculation.
-            // The input field itself remains empty, as desired during editing.
-            // The 'blur' event listener on termLengthInputElement will handle resetting
-            // the displayed value to default if it's left empty or invalid.
-            // --- END OF MODIFIED SECTION ---
 
             const totalTermMilliseconds = calculatedTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
@@ -367,28 +369,31 @@
                 if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(days).padStart(2,'0') ;
                 unitText = (days === 1) ? "DAY TIL KICK OFF" : "DAYS TIL KICK OFF";
                 if (tickerSecondsElement) tickerSecondsElement.innerHTML = `(${String(hours).padStart(2,'0')}H ${String(minutes).padStart(2,'0')}M ${String(seconds).padStart(2,'0')}S)<span class="term-explainer-asterisk">*</span>`;
-                
+
                 if (tickerIntroElement) tickerIntroElement.textContent = introText;
                 if (tickerUnitElement) tickerUnitElement.textContent = unitText;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; // Ensure empty state
                 return;
             }
 
             const fractionOfTermElapsed = totalTermMilliseconds > 0 ? elapsedMilliseconds / totalTermMilliseconds : 0;
             const matchTimeTotalMinutes = fractionOfTermElapsed * footballMatchDurationMinutes;
-            
+
             let gameMinutes = Math.floor(matchTimeTotalMinutes);
             let gameSeconds = Math.floor((matchTimeTotalMinutes - gameMinutes) * 60);
 
-            if (gameMinutes >= footballMatchDurationMinutes) {
+             if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
-                introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
-                unitText = (gameMinutes === 1 && footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";
+                introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING"; // Text at full time
+                unitText = (footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES."; // Unit at full time
                 halfTimeText = "FULL TIME";
+            } else if (matchTimeTotalMinutes >= footballMatchDurationMinutes / 2) { // Check for half time
+                 halfTimeText = "HALF TIME";
             } else {
-                unitText = (gameMinutes === 1) ? "MINUTE" : "MINUTES";
+                 halfTimeText = " "; // Ensure empty state before half time
             }
+
 
             if (tickerIntroElement) tickerIntroElement.textContent = introText;
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
@@ -400,37 +405,43 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            setInitialInfo();
+            setInitialInfo(); // Set default values on load
+
+            // Use the value from the input field if present on load
             const initialDateValue = electionDateInputElement.value;
             if (initialDateValue && initialDateValue !== "") {
                 governmentStartDate = new Date(initialDateValue + "T00:00:00Z");
+            } else {
+                 // If the input value was empty for some reason, fall back to default and set the input
+                 electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
+                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
             }
-            updateTicker();
-            setInterval(updateTicker, 1000);
+
+            updateTicker(); // Initial update
+            setInterval(updateTicker, 1000); // Update every second
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', updateTicker);
-                // This 'blur' event listener is crucial for resetting to default
-                // if the field is left empty or with an invalid value.
-                // It was already correctly implemented in your original code.
                 termLengthInputElement.addEventListener('blur', function() {
                     const inputValueFloat = parseFloat(termLengthInputElement.value);
                     if (isNaN(inputValueFloat) || inputValueFloat <= 0) {
                         termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
-                        updateTicker(); // Update the ticker display with the reset value
                     }
+                    updateTicker(); // Always update on blur to reflect potential reset or valid entry
                 });
             }
 
             if (electionDateInputElement) {
                 electionDateInputElement.addEventListener('change', handleDateChange);
-                electionDateInputElement.addEventListener('blur', function() {
-                    if (!electionDateInputElement.value || electionDateInputElement.value === "") {
-                        handleDateChange();
-                    }
-                });
+                 // Add a blur listener for the date input as well
+                 electionDateInputElement.addEventListener('blur', function() {
+                     if (!electionDateInputElement.value || electionDateInputElement.value === "") {
+                         handleDateChange(); // This will reset to default date and update
+                     }
+                 });
             }
         });
     </script>
 </body>
 </html>
+EOF
