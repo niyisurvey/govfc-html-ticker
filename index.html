@@ -92,7 +92,7 @@
         }
 
         .ticker-wrapper {
-            margin: 10px 0; /* Adjusted margin slightly now half-time message is gone */
+            margin: 10px 0;
         }
 
         #ticker-intro {
@@ -199,28 +199,26 @@
             color: #aaccf0;
         }
         #quick-start-dates-wrapper {
-            display: flex;
-            align-items: center; /* Vertically align items if #quick-start-dates wraps */
-            justify-content: center;
-            /* flex-wrap: nowrap; Removed to allow natural wrapping of children if needed, though #quick-start-dates handles its own content wrapping */
-            margin-bottom: 5px;
+            text-align: center;
+            margin-bottom: 2px;
             width: 100%;
             margin-top: 0;
         }
+        #quick-start-links-container {
+             text-align: center;
+             margin-bottom: 5px;
+        }
         #quick-start-dates {
-            /* white-space: nowrap; Removed to allow wrapping */
-            /* overflow-x: auto; Removed as wrapping is preferred */
-            text-align: center; /* Center the wrapped lines of links */
+            text-align: center;
             padding: 0 5px;
-            display: inline-block; /* Allows it to be centered by parent flex and wrap content */
-            max-width: calc(100% - 120px); /* Example: prevent it from pushing descriptor too far, adjust as needed */
+            display: inline-block;
+            max-width: 100%;
         }
         .quick-links-descriptor {
             font-size: 0.9em;
             color: #b0b0b0;
             text-transform: lowercase;
-            margin-left: 8px;
-            white-space: nowrap; /* Keep this descriptor on one line */
+            white-space: nowrap;
         }
         .inline-date-link {
             color: #88c0d0;
@@ -285,7 +283,6 @@
             .date-link, .inline-date-link, .input-sub-links { font-size: 0.8em; margin: 0 3px;}
             .quick-links-descriptor { font-size: 0.8em; }
             #term-length-label { font-size: 0.8em; }
-            #quick-start-dates { max-width: calc(100% - 100px); } /* Adjust for smaller screens */
         }
         @media (max-width: 420px) {
             #game-minutes-big { font-size: 7em; }
@@ -298,15 +295,6 @@
              .quick-links-descriptor { font-size: 0.7em; }
              #quick-start-dates {
                 font-size: 0.9em;
-                max-width: 100%; /* Allow full width and rely on text-align center */
-             }
-             #quick-start-dates-wrapper {
-                flex-direction: column; /* Stack links and descriptor on very small screens */
-                align-items: center;
-             }
-             .quick-links-descriptor {
-                margin-left: 0;
-                margin-top: 4px;
              }
              #term-length-label { font-size: 0.75em; }
         }
@@ -320,7 +308,7 @@
             <p id="intro-question">If this parliamentary term were a football match, how long have the current uk government been in power?</p>
 
             <div class="ticker-wrapper">
-                <p id="ticker-intro">FOR FUCKS SAKE IT'S ONLY BEEN</p>
+                <p id="ticker-intro">FOR FUCKS SAKE IT'S BEEN</p>
                 <div id="game-minutes-big">00</div>
                 <p id="ticker-unit">MINUTES</p>
                 <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p>
@@ -329,6 +317,9 @@
             <div id="custom-term-section">
 
                 <div id="quick-start-dates-wrapper">
+                    <span class="quick-links-descriptor">(term start date):</span>
+                </div>
+                <div id="quick-start-links-container">
                     <div id="quick-start-dates">
                         <span class="date-link" data-date="1997-05-02" aria-label="Set start date to May 2, 1997 (blair)">blair</span> |
                         <span class="date-link" data-date="2007-06-27" aria-label="Set start date to June 27, 2007 (brown)">brown</span> |
@@ -340,7 +331,6 @@
                         <span class="date-link" data-date="2022-10-25" aria-label="Set start date to October 25, 2022 (sunak)">sunak</span> |
                         <span class="date-link" data-date="2024-07-05" aria-label="Set start date to July 5, 2024 (starmer)">starmer</span>
                     </div>
-                    <span class="quick-links-descriptor">(term start date):</span>
                 </div>
                 <input type="date" id="election-date-input" aria-label="term start date input">
 
@@ -349,9 +339,11 @@
                 <div class="input-sub-links">
                     <span class="inline-date-link" id="truss-red-card-link" data-date="2022-10-20" data-start-date="2022-09-06" aria-label="Set today's date to October 20, 2022 and term start to Sept 6, 2022 (Truss' red card event)">truss' red card</span>
                     <span class="grey-text"> or </span>
-                    <span class="inline-date-link" id="clegg-sorry-link" data-date="2012-09-19" data-start-date="2010-05-11" aria-label="Set today's date to September 19, 2012, term start to May 11, 2010 and term to 5 years (Clegg's I'm sorry event)">clegg's im sorry</span>
+                    <span class="inline-date-link" id="clegg-tuition-fees-link" data-date="2010-12-09" data-start-date="2010-05-11" aria-label="Set today's date to December 9, 2010, term start to May 11, 2010 and term to 5 years (Clegg's tuition fees event)">clegg's tuition fees</span>
                     <span class="grey-text"> or </span>
                     <span class="inline-date-link" id="brown-bigoted-link" data-date="2010-04-28" data-start-date="2007-06-27" data-term-length="2.87" aria-label="Set today's date to April 28, 2010, term start to June 27, 2007 and term to 2.87 years (Brown's bigoted woman event)">brown's bigoted woman</span>
+                    <span class="grey-text"> or </span>
+                    <span class="inline-date-link" id="cameron-brexit-link" data-date="2016-06-23" data-start-date="2015-05-27" data-term-length="5.00" aria-label="Set today's date to June 23, 2016, term start to May 27, 2015 and term to 5 years (Cameron's Brexit event)">cameron's brexit</span>
                 </div>
 
                 <label id="term-length-label" for="term-length-input">*term length (years), based upon the 2019 to 2024 parliament which was ~4½:</label>
@@ -386,8 +378,9 @@
         const introQuestionElement = document.getElementById('intro-question');
         const quickStartDatesContainer = document.getElementById('quick-start-dates');
         const trussRedCardLink = document.getElementById('truss-red-card-link');
-        const cleggSorryLink = document.getElementById('clegg-sorry-link');
+        const cleggTuitionFeesLink = document.getElementById('clegg-tuition-fees-link');
         const brownBigotedLink = document.getElementById('brown-bigoted-link');
+        const cameronBrexitLink = document.getElementById('cameron-brexit-link'); // New link element
 
         function getTodaysDateString() {
             const today = new Date();
@@ -411,7 +404,7 @@
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
             }
 
-            if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S ONLY BEEN";
+            if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S BEEN";
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = "00";
             if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
             if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
@@ -480,7 +473,7 @@
             }
             const totalTermMilliseconds = calculatedTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
-            let introText = "FOR FUCKS SAKE IT'S ONLY BEEN";
+            let introText = "FOR FUCKS SAKE IT'S BEEN";
             let unitText = "MINUTES";
             let secondsTextPrefix = "AND ";
             let secondsTextSuffix = " FUCKING SECONDS";
@@ -600,8 +593,8 @@
                 });
             }
 
-            if (cleggSorryLink) {
-                cleggSorryLink.addEventListener('click', function(event) {
+            if (cleggTuitionFeesLink) {
+                cleggTuitionFeesLink.addEventListener('click', function(event) {
                     event.preventDefault();
                     const todayDateToSet = this.dataset.date;
                     const termStartDateToSet = this.dataset.startDate;
@@ -622,6 +615,27 @@
 
             if (brownBigotedLink) {
                 brownBigotedLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const todayDateToSet = this.dataset.date;
+                    const termStartDateToSet = this.dataset.startDate;
+                    const termLengthToSet = this.dataset.termLength;
+
+                    if (todayDateToSet && todaysDateInputElement) {
+                        todaysDateInputElement.value = todayDateToSet;
+                    }
+                    if (termStartDateToSet && electionDateInputElement) {
+                        electionDateInputElement.value = termStartDateToSet;
+                        governmentStartDate = new Date(termStartDateToSet + "T00:00:00Z");
+                    }
+                    if (termLengthToSet && termLengthInputElement) {
+                        termLengthInputElement.value = parseFloat(termLengthToSet).toFixed(2);
+                    }
+                    updateTicker();
+                });
+            }
+
+            if (cameronBrexitLink) { // Event listener for the new Cameron Brexit link
+                cameronBrexitLink.addEventListener('click', function(event) {
                     event.preventDefault();
                     const todayDateToSet = this.dataset.date;
                     const termStartDateToSet = this.dataset.startDate;
