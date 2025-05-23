@@ -48,12 +48,31 @@
 
         #custom-term-section label {
             font-size: 0.9em;
-            color: #b0b0b0;
+            color: #b0b0b0; /* Grey color for labels */
             margin-bottom: 8px;
             display: block;
             text-transform: lowercase;
             margin-top: 10px;
         }
+        /* Specific label for the 'todays date' input */
+        #todays-date-label {
+             margin-bottom: 8px;
+             margin-top: 15px;
+        }
+        /* Specific label for term length input */
+        #term-length-label {
+            font-style: italic;
+            color: #aaaaaa;
+        }
+        .input-sub-links { /* Container for links under an input */
+            font-size: 0.9em;
+            color: #b0b0b0;
+            text-transform: lowercase;
+            margin-top: 4px;
+            margin-bottom: 10px;
+            line-height: 1.5; /* Ensure links with descenders don't overlap */
+        }
+
 
         #election-date-input, #todays-date-input {
             font-size: 1em;
@@ -73,7 +92,7 @@
         }
 
         .ticker-wrapper {
-            margin: 10px 0;
+            margin: 10px 0; /* Adjusted margin slightly now half-time message is gone */
         }
 
         #ticker-intro {
@@ -108,7 +127,8 @@
         #ticker-seconds {
             font-size: 2.5em;
             color: #FFFFFF;
-            margin: 5px 0 0 0;
+            margin: 5px 0 0 0; /* Original margin was 5px 0 0 0 */
+                               /* This might be the next point of adjustment if user wants less space */
             font-weight: bold;
             line-height: 1.2;
             text-transform: uppercase;
@@ -123,36 +143,16 @@
             text-transform: none;
         }
 
-        #half-time-message {
-            font-size: 1.4em;
-            color: #FFEB3B;
-            height: 1.4em;
-            line-height: 1.4em;
-            min-height: 0;
-            font-weight: bold;
-            margin-top: 1px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
+        /* #half-time-message CSS rule removed */
 
         #custom-term-section {
-            margin-top: 20px;
+            margin-top: 10px; /* Adjusted from 5px, as half-time message had margin-bottom 0 and margin-top 1px */
             margin-bottom: 15px;
             border-top: 1px solid #2a2a2a;
             padding-top: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        #custom-term-explainer {
-            font-size: 0.8em;
-            color: #aaaaaa;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         #term-length-input {
@@ -188,6 +188,52 @@
             line-height: 1.5;
             color: #707070;
         }
+
+        .date-link {
+            color: #88c0d0;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 0.9em;
+            text-transform: lowercase;
+        }
+        .date-link:hover, .inline-date-link:hover {
+            text-decoration: underline;
+            color: #aaccf0;
+        }
+        #quick-start-dates-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            margin-bottom: 5px;
+            width: 100%;
+            margin-top: 0;
+        }
+        #quick-start-dates {
+            text-align: center;
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 5px;
+            display: inline-block;
+        }
+        .quick-links-descriptor {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            text-transform: lowercase;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+        .inline-date-link {
+            color: #88c0d0;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .grey-text {
+            color: #b0b0b0;
+        }
+
 
         footer {
             margin-top: 30px;
@@ -228,7 +274,7 @@
             #game-minutes-big { font-size: 12em; }
             #ticker-unit { font-size: 2.2em; }
             #ticker-seconds { font-size: 1.8em; }
-            #half-time-message { font-size: 1.2em; height: 1.2em; line-height: 1.2em;}
+            /* #half-time-message rule removed */
             #intro-question { font-size: 0.8em; }
              h1 { font-size: 1.4em; }
         }
@@ -238,17 +284,25 @@
             #ticker-unit { font-size: 1.9em; }
             #ticker-seconds { font-size: 1.4em; }
             #intro-question { font-size: 0.8em; }
-            #custom-term-explainer { font-size: 0.75em; }
             #election-date-input, #todays-date-input { min-width: 180px; font-size: 0.9em;}
              h1 { font-size: 1.2em; }
+            .date-link, .inline-date-link, .input-sub-links { font-size: 0.8em; margin: 0 3px;}
+            .quick-links-descriptor { font-size: 0.8em; }
+            #term-length-label { font-size: 0.8em; }
         }
-        @media (max-width: 380px) {
+        @media (max-width: 420px) {
             #game-minutes-big { font-size: 7em; }
             #ticker-unit { font-size: 1.6em; }
             #ticker-seconds { font-size: 1.2em; }
             #ticker-intro { font-size: 1.1em; }
             #intro-question { font-size: 0.7em; }
              h1 { font-size: 1em; }
+             .date-link, .inline-date-link, .input-sub-links { font-size: 0.7em; margin: 0 2px;}
+             .quick-links-descriptor { font-size: 0.7em; }
+             #quick-start-dates {
+                font-size: 0.9em;
+             }
+             #term-length-label { font-size: 0.75em; }
         }
     </style>
 </head>
@@ -265,19 +319,36 @@
                 <p id="ticker-unit">MINUTES</p>
                 <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p>
             </div>
-            <p id="half-time-message"> </p>
-
             <div id="custom-term-section">
-                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:</p>
 
-                <label for="election-date-input">term start date</label>
-                <input type="date" id="election-date-input" aria-label="term start date">
+                <div id="quick-start-dates-wrapper">
+                    <div id="quick-start-dates">
+                        <span class="date-link" data-date="1997-05-02" aria-label="Set start date to May 2, 1997 (blair)">blair</span> |
+                        <span class="date-link" data-date="2007-06-27" aria-label="Set start date to June 27, 2007 (brown)">brown</span> |
+                        <span class="date-link" data-date="2010-05-11" aria-label="Set start date to May 11, 2010 (cameron/clegg coalition)">cameron/clegg</span> |
+                        <span class="date-link" data-date="2015-05-27" aria-label="Set start date to May 27, 2015 (cameron)">cameron</span> |
+                        <span class="date-link" data-date="2016-07-13" aria-label="Set start date to July 13, 2016 (may)">may</span> |
+                        <span class="date-link" data-date="2019-07-24" aria-label="Set start date to July 24, 2019 (boris)">boris</span> |
+                        <span class="date-link" data-date="2022-09-06" aria-label="Set start date to September 6, 2022 (truss)">truss</span> |
+                        <span class="date-link" data-date="2022-10-25" aria-label="Set start date to October 25, 2022 (sunak)">sunak</span> |
+                        <span class="date-link" data-date="2024-07-05" aria-label="Set start date to July 5, 2024 (starmer)">starmer</span>
+                    </div>
+                    <span class="quick-links-descriptor">(term start date):</span>
+                </div>
+                <input type="date" id="election-date-input" aria-label="term start date input">
 
-                <label for="todays-date-input">todays date (or date of political event)</label>
-                <input type="date" id="todays-date-input" aria-label="todays date or date of political event">
+                <label id="todays-date-label" for="todays-date-input">todays date (or date of political event):</label>
+                <input type="date" id="todays-date-input" aria-labelledby="todays-date-label">
+                <div class="input-sub-links">
+                    eg <span class="inline-date-link" id="truss-red-card-link" data-date="2022-10-20" data-start-date="2022-09-06" aria-label="Set today's date to October 20, 2022 and term start to Sept 6, 2022 (Truss' red card event)">truss' red card</span>
+                    <span class="grey-text"> or </span>
+                    <span class="inline-date-link" id="clegg-sorry-link" data-date="2012-09-19" data-start-date="2010-05-11" aria-label="Set today's date to September 19, 2012, term start to May 11, 2010 and term to 5 years (Clegg's I'm sorry event)">clegg's im sorry</span>
+                    <span class="grey-text"> or </span>
+                    <span class="inline-date-link" id="brown-bigoted-link" data-date="2010-04-28" data-start-date="2007-06-27" data-term-length="2.87" aria-label="Set today's date to April 28, 2010, term start to June 27, 2007 and term to 2.87 years (Brown's bigoted woman event)">brown's bigoted woman</span>
+                </div>
 
-                <label for="term-length-input">term length (years)</label>
-                <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years">
+                <label id="term-length-label" for="term-length-input">*term length (years), based upon the 2019 to 2024 parliament which was ~4½:</label>
+                <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years, based upon the 2019 to 2024 parliament which was ~4½">
             </div>
 
             <p class="details-section">This site visualises the duration of the current UK parliamentary term as a 90-minute football match. It is a personal project.</p>
@@ -290,23 +361,27 @@
     </div>
 
     <script>
-        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-05";
+        const DEFAULT_GOVERNMENT_START_DATE_STRING = "2024-07-05"; // Starmer's date as default
         const DEFAULT_TERM_YEARS_FLOAT = 4.56;
         const footballMatchDurationMinutes = 90;
 
         let governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
 
+        // DOM Element References
         const tickerIntroElement = document.getElementById('ticker-intro');
         const gameMinutesBigElement = document.getElementById('game-minutes-big');
         const tickerUnitElement = document.getElementById('ticker-unit');
         const tickerSecondsElement = document.getElementById('ticker-seconds');
-        const halfTimeMessageElement = document.getElementById('half-time-message');
+        // halfTimeMessageElement removed
         const currentYearElement = document.getElementById('current-year');
         const termLengthInputElement = document.getElementById('term-length-input');
         const electionDateInputElement = document.getElementById('election-date-input');
         const todaysDateInputElement = document.getElementById('todays-date-input');
-        const customTermExplainerElement = document.getElementById('custom-term-explainer');
         const introQuestionElement = document.getElementById('intro-question');
+        const quickStartDatesContainer = document.getElementById('quick-start-dates');
+        const trussRedCardLink = document.getElementById('truss-red-card-link');
+        const cleggSorryLink = document.getElementById('clegg-sorry-link');
+        const brownBigotedLink = document.getElementById('brown-bigoted-link');
 
         function getTodaysDateString() {
             const today = new Date();
@@ -329,15 +404,12 @@
             if (termLengthInputElement) {
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
             }
-            if (customTermExplainerElement) {
-                customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:";
-            }
 
             if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S ONLY BEEN";
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = "00";
             if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
             if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
-            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " ";
+            // halfTimeMessageElement.innerHTML = " "; // Line removed
         }
 
         function handleElectionDateChange() {
@@ -381,11 +453,10 @@
             return effectiveNow;
         }
 
-
         function updateTicker() {
             const now = getEffectiveNow();
 
-            if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
+             if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
                 if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
             }
@@ -393,21 +464,22 @@
 
             let calculatedTermYears = DEFAULT_TERM_YEARS_FLOAT;
             const termInputValueString = termLengthInputElement.value;
-
             if (termInputValueString.trim() !== "") {
                 const parsedTermYears = parseFloat(termInputValueString);
                 if (!isNaN(parsedTermYears) && parsedTermYears > 0) {
                     calculatedTermYears = parsedTermYears;
+                } else {
+                    termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
+                    calculatedTermYears = DEFAULT_TERM_YEARS_FLOAT;
                 }
             }
-
             const totalTermMilliseconds = calculatedTermYears * 365.25 * 24 * 60 * 60 * 1000;
 
             let introText = "FOR FUCKS SAKE IT'S ONLY BEEN";
             let unitText = "MINUTES";
             let secondsTextPrefix = "AND ";
             let secondsTextSuffix = " FUCKING SECONDS";
-            let halfTimeText = " ";
+            // halfTimeText variable removed
 
             if (elapsedMilliseconds < 0) {
                 introText = "THE POLITICAL MATCH STARTS IN...";
@@ -423,7 +495,7 @@
 
                 if (tickerIntroElement) tickerIntroElement.textContent = introText;
                 if (tickerUnitElement) tickerUnitElement.textContent = unitText;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
+                // halfTimeMessageElement update removed
                 return;
             }
 
@@ -438,12 +510,8 @@
                 gameSeconds = 0;
                 introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
                 unitText = (footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";
-                halfTimeText = "FULL TIME";
-            } else if (matchTimeTotalMinutes >= footballMatchDurationMinutes / 2) {
-                 halfTimeText = "HALF TIME";
-            } else {
-                 halfTimeText = " ";
             }
+            // halfTimeText related logic removed
 
             if (tickerIntroElement) tickerIntroElement.textContent = introText;
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
@@ -451,7 +519,7 @@
             if (tickerSecondsElement) {
                 tickerSecondsElement.innerHTML = secondsTextPrefix + String(gameSeconds).padStart(2, '0') + secondsTextSuffix + "<span class=\"term-explainer-asterisk\">*</span>";
             }
-            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
+            // halfTimeMessageElement update removed
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -496,6 +564,77 @@
                 todaysDateInputElement.addEventListener('blur', function() {
                     if (!todaysDateInputElement.value || todaysDateInputElement.value === "") {
                         todaysDateInputElement.value = getTodaysDateString();
+                    }
+                    updateTicker();
+                });
+            }
+
+            if (quickStartDatesContainer) {
+                quickStartDatesContainer.addEventListener('click', function(event) {
+                    const target = event.target;
+                    if (target.classList.contains('date-link')) {
+                        const dateToSet = target.dataset.date;
+                        if (dateToSet && electionDateInputElement) {
+                            electionDateInputElement.value = dateToSet;
+                            handleElectionDateChange();
+                        }
+                    }
+                });
+            }
+
+            if (trussRedCardLink) {
+                trussRedCardLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const todayDateToSet = this.dataset.date;
+                    const termStartDateToSet = this.dataset.startDate;
+
+                    if (todayDateToSet && todaysDateInputElement) {
+                        todaysDateInputElement.value = todayDateToSet;
+                    }
+                    if (termStartDateToSet && electionDateInputElement) {
+                        electionDateInputElement.value = termStartDateToSet;
+                        governmentStartDate = new Date(termStartDateToSet + "T00:00:00Z");
+                    }
+                    updateTicker();
+                });
+            }
+
+            if (cleggSorryLink) {
+                cleggSorryLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const todayDateToSet = this.dataset.date;
+                    const termStartDateToSet = this.dataset.startDate;
+
+                    if (todayDateToSet && todaysDateInputElement) {
+                        todaysDateInputElement.value = todayDateToSet;
+                    }
+                    if (termStartDateToSet && electionDateInputElement) {
+                        electionDateInputElement.value = termStartDateToSet;
+                        governmentStartDate = new Date(termStartDateToSet + "T00:00:00Z");
+                    }
+                    if (termLengthInputElement) {
+                        termLengthInputElement.value = "5.00";
+                    }
+                    updateTicker();
+                });
+            }
+
+            if (brownBigotedLink) {
+                brownBigotedLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const todayDateToSet = this.dataset.date;
+                    const termStartDateToSet = this.dataset.startDate;
+                    const termLengthToSet = this.dataset.termLength;
+
+                    if (todayDateToSet && todaysDateInputElement) {
+                        todaysDateInputElement.value = todayDateToSet;
+                    }
+                    if (termStartDateToSet && electionDateInputElement) {
+                        electionDateInputElement.value = termStartDateToSet;
+                        governmentStartDate = new Date(termStartDateToSet + "T00:00:00Z");
+                    }
+                    if (termLengthToSet && termLengthInputElement) {
+                        termLengthInputElement.value = parseFloat(termLengthToSet).toFixed(2);
                     }
                     updateTicker();
                 });
