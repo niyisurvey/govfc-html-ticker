@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Government Term Length as a Football Match - govfc.co.uk</title>
-    <meta name="description" content="See how long the current UK government's parliamentary term has lasted, visualised as a football match. Compare elapsed time to a standard match duration based on customisable dates and term lengths.">
-    <meta name="google-site-verification" content="PASTE_YOUR_UNIQUE_CODE_FROM_GOOGLE_HERE">
+    <title>UK Government Term Length as a Football Match - govfc.co.uk</title> <meta name="description" content="See how long the current UK government's parliamentary term has lasted, visualised as a football match. Compare elapsed time to a standard match duration based on customisable dates and term lengths."> <meta name="google-site-verification" content="PASTE_YOUR_UNIQUE_CODE_FROM_GOOGLE_HERE">
     <meta name="msvalidate.01" content="F449803E630495C2D9F53E1C3C83BE1D">
     <style>
         body {
@@ -29,7 +27,7 @@
             max-width: 95%;
         }
 
-        h1 {
+        h1 { /* Added styling for the new H1 tag */
             font-size: 1.8em;
             color: #88c0d0;
             margin: 20px 0 10px 0;
@@ -41,7 +39,7 @@
             font-size: 1.0em;
             color: #88c0d0;
             margin-bottom: 20px;
-            margin-top: 10px;
+            margin-top: 10px; /* Adjusted margin top */
             line-height: 1.4;
             text-transform: lowercase;
         }
@@ -52,10 +50,9 @@
             margin-bottom: 8px;
             display: block;
             text-transform: lowercase;
-            margin-top: 10px;
         }
 
-        #election-date-input, #todays-date-input {
+        #election-date-input {
             font-size: 1em;
             padding: 8px 12px;
             min-width: 200px;
@@ -68,7 +65,7 @@
             color-scheme: dark;
             margin-top: 5px;
         }
-        #election-date-input:focus, #todays-date-input:focus {
+        #election-date-input:focus {
             outline: 1px solid #88c0d0;
         }
 
@@ -213,7 +210,7 @@
             #ticker-seconds { font-size: 2.2em; }
             #ticker-intro { font-size: 2.0em; }
             #intro-question { font-size: 0.9em; }
-             h1 { font-size: 1.6em; }
+             h1 { font-size: 1.6em; } /* Responsive H1 */
         }
         @media (max-width: 900px) {
             #game-minutes-big { font-size: 15em; }
@@ -221,7 +218,7 @@
             #ticker-seconds { font-size: 2.0em; }
             #ticker-intro { font-size: 1.75em; }
             #intro-question { font-size: 0.9em; }
-             h1 { font-size: 1.5em; }
+             h1 { font-size: 1.5em; } /* Responsive H1 */
         }
         @media (max-width: 700px) {
             #ticker-intro { font-size: 1.6em; }
@@ -230,7 +227,7 @@
             #ticker-seconds { font-size: 1.8em; }
             #half-time-message { font-size: 1.2em; height: 1.2em; line-height: 1.2em;}
             #intro-question { font-size: 0.8em; }
-             h1 { font-size: 1.4em; }
+             h1 { font-size: 1.4em; } /* Responsive H1 */
         }
         @media (max-width: 500px) {
             #ticker-intro { font-size: 1.3em; }
@@ -239,8 +236,8 @@
             #ticker-seconds { font-size: 1.4em; }
             #intro-question { font-size: 0.8em; }
             #custom-term-explainer { font-size: 0.75em; }
-            #election-date-input, #todays-date-input { min-width: 180px; font-size: 0.9em;}
-             h1 { font-size: 1.2em; }
+            #election-date-input { min-width: 180px; font-size: 0.9em;}
+             h1 { font-size: 1.2em; } /* Responsive H1 */
         }
         @media (max-width: 380px) {
             #game-minutes-big { font-size: 7em; }
@@ -248,7 +245,7 @@
             #ticker-seconds { font-size: 1.2em; }
             #ticker-intro { font-size: 1.1em; }
             #intro-question { font-size: 0.7em; }
-             h1 { font-size: 1em; }
+             h1 { font-size: 1em; } /* Responsive H1 */
         }
     </style>
 </head>
@@ -262,26 +259,18 @@
             <div class="ticker-wrapper">
                 <p id="ticker-intro">FOR FUCKS SAKE IT'S ONLY BEEN</p>
                 <div id="game-minutes-big">00</div>
-                <p id="ticker-unit">MINUTES</p>
-                <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p>
-            </div>
+                <p id="ticker-unit">MINUTES</p> <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p> </div>
             <p id="half-time-message"> </p>
 
             <div id="custom-term-section">
-                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:</p>
+                <p id="custom-term-explainer">*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:</p> <label for="term-length-input">term length (years)</label> <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years">
 
                 <label for="election-date-input">term start date</label>
                 <input type="date" id="election-date-input" aria-label="term start date">
-
-                <label for="todays-date-input">todays date (or date of political event)</label>
-                <input type="date" id="todays-date-input" aria-label="todays date or date of political event">
-
-                <label for="term-length-input">term length (years)</label>
-                <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years">
             </div>
 
-            <p class="details-section">This site visualises the duration of the current UK parliamentary term as a 90-minute football match. It is a personal project.</p>
-        </main>
+            <p class="details-section">This site visualises the duration of the current UK parliamentary term as a 90-minute football match. It is a personal project.</p> </main>
+
 
         <footer>
             <p>© <span id="current-year"></span> govfc.co.uk - if it's not broken lololol.</p>
@@ -304,14 +293,8 @@
         const currentYearElement = document.getElementById('current-year');
         const termLengthInputElement = document.getElementById('term-length-input');
         const electionDateInputElement = document.getElementById('election-date-input');
-        const todaysDateInputElement = document.getElementById('todays-date-input');
         const customTermExplainerElement = document.getElementById('custom-term-explainer');
         const introQuestionElement = document.getElementById('intro-question');
-
-        function getTodaysDateString() {
-            const today = new Date();
-            return today.toISOString().split('T')[0];
-        }
 
         function setInitialInfo() {
             if (introQuestionElement) {
@@ -323,26 +306,25 @@
             if (electionDateInputElement) {
                 electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
             }
-            if (todaysDateInputElement) {
-                todaysDateInputElement.value = getTodaysDateString();
-            }
             if (termLengthInputElement) {
                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
             }
             if (customTermExplainerElement) {
-                customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:";
+                customTermExplainerElement.textContent = "*based upon the 2019 to 2024 parliament (~4.56 years). u can chnage stuff, if you like:"; // Corrected spacing
             }
 
+            // Set initial display text using the elements directly
             if (tickerIntroElement) tickerIntroElement.textContent = "FOR FUCKS SAKE IT'S ONLY BEEN";
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = "00";
             if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
             if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
-            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " ";
+            if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = " "; // Ensure it's empty initially
         }
 
-        function handleElectionDateChange() {
+        function handleDateChange() {
             const dateValue = electionDateInputElement.value;
             if (dateValue && dateValue !== "") {
+                // Use UTC date to avoid timezone issues affecting day calculation
                 governmentStartDate = new Date(dateValue + "T00:00:00Z");
             } else {
                 electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
@@ -351,41 +333,10 @@
             updateTicker();
         }
 
-        function getEffectiveNow() {
-            const actualCurrentDateTime = new Date();
-            let effectiveNow = actualCurrentDateTime;
-
-            if (todaysDateInputElement && todaysDateInputElement.value && todaysDateInputElement.value !== "") {
-                const dateValue = todaysDateInputElement.value;
-                const parts = dateValue.split('-');
-                if (parts.length === 3) {
-                    const year = parseInt(parts[0], 10);
-                    const month = parseInt(parts[1], 10);
-                    const day = parseInt(parts[2], 10);
-
-                    if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
-                        effectiveNow = new Date(Date.UTC(year, month - 1, day,
-                                                       actualCurrentDateTime.getUTCHours(),
-                                                       actualCurrentDateTime.getUTCMinutes(),
-                                                       actualCurrentDateTime.getUTCSeconds(),
-                                                       actualCurrentDateTime.getUTCMilliseconds()));
-                    } else {
-                        todaysDateInputElement.value = getTodaysDateString();
-                    }
-                } else {
-                    todaysDateInputElement.value = getTodaysDateString();
-                }
-            } else if (todaysDateInputElement) {
-                 todaysDateInputElement.value = getTodaysDateString();
-            }
-            return effectiveNow;
-        }
-
-
         function updateTicker() {
-            const now = getEffectiveNow();
-
-            if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
+            const now = new Date();
+            // Ensure governmentStartDate is a valid Date object
+             if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
                 if (electionDateInputElement) electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
             }
@@ -423,7 +374,7 @@
 
                 if (tickerIntroElement) tickerIntroElement.textContent = introText;
                 if (tickerUnitElement) tickerUnitElement.textContent = unitText;
-                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText;
+                if (halfTimeMessageElement) halfTimeMessageElement.innerHTML = halfTimeText; // Ensure empty state
                 return;
             }
 
@@ -436,14 +387,15 @@
              if (gameMinutes >= footballMatchDurationMinutes) {
                 gameMinutes = footballMatchDurationMinutes;
                 gameSeconds = 0;
-                introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
-                unitText = (footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";
+                introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING"; // Text at full time
+                unitText = (footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES."; // Unit at full time
                 halfTimeText = "FULL TIME";
-            } else if (matchTimeTotalMinutes >= footballMatchDurationMinutes / 2) {
+            } else if (matchTimeTotalMinutes >= footballMatchDurationMinutes / 2) { // Check for half time
                  halfTimeText = "HALF TIME";
             } else {
-                 halfTimeText = " ";
+                 halfTimeText = " "; // Ensure empty state before half time
             }
+
 
             if (tickerIntroElement) tickerIntroElement.textContent = introText;
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
@@ -455,21 +407,20 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            setInitialInfo();
+            setInitialInfo(); // Set default values on load
 
-            const initialElectionDateValue = electionDateInputElement.value;
-            if (initialElectionDateValue && initialElectionDateValue !== "") {
-                governmentStartDate = new Date(initialElectionDateValue + "T00:00:00Z");
+            // Use the value from the input field if present on load
+            const initialDateValue = electionDateInputElement.value;
+            if (initialDateValue && initialDateValue !== "") {
+                governmentStartDate = new Date(initialDateValue + "T00:00:00Z");
             } else {
+                 // If the input value was empty for some reason, fall back to default and set the input
                  electionDateInputElement.value = DEFAULT_GOVERNMENT_START_DATE_STRING;
                  governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
             }
-             if (todaysDateInputElement && (!todaysDateInputElement.value || todaysDateInputElement.value === "")) {
-                todaysDateInputElement.value = getTodaysDateString();
-            }
 
-            updateTicker();
-            setInterval(updateTicker, 1000);
+            updateTicker(); // Initial update
+            setInterval(updateTicker, 1000); // Update every second
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', updateTicker);
@@ -478,29 +429,21 @@
                     if (isNaN(inputValueFloat) || inputValueFloat <= 0) {
                         termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
                     }
-                    updateTicker();
+                    updateTicker(); // Always update on blur to reflect potential reset or valid entry
                 });
             }
 
             if (electionDateInputElement) {
-                electionDateInputElement.addEventListener('change', handleElectionDateChange);
+                electionDateInputElement.addEventListener('change', handleDateChange);
+                 // Add a blur listener for the date input as well
                  electionDateInputElement.addEventListener('blur', function() {
                      if (!electionDateInputElement.value || electionDateInputElement.value === "") {
-                         handleElectionDateChange();
+                         handleDateChange(); // This will reset to default date and update
                      }
                  });
-            }
-
-            if (todaysDateInputElement) {
-                todaysDateInputElement.addEventListener('change', updateTicker);
-                todaysDateInputElement.addEventListener('blur', function() {
-                    if (!todaysDateInputElement.value || todaysDateInputElement.value === "") {
-                        todaysDateInputElement.value = getTodaysDateString();
-                    }
-                    updateTicker();
-                });
             }
         });
     </script>
 </body>
 </html>
+EOF
