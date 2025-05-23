@@ -127,8 +127,7 @@
         #ticker-seconds {
             font-size: 2.5em;
             color: #FFFFFF;
-            margin: 5px 0 0 0; /* Original margin was 5px 0 0 0 */
-                               /* This might be the next point of adjustment if user wants less space */
+            margin: 5px 0 0 0;
             font-weight: bold;
             line-height: 1.2;
             text-transform: uppercase;
@@ -143,10 +142,8 @@
             text-transform: none;
         }
 
-        /* #half-time-message CSS rule removed */
-
         #custom-term-section {
-            margin-top: 10px; /* Adjusted from 5px, as half-time message had margin-bottom 0 and margin-top 1px */
+            margin-top: 10px;
             margin-bottom: 15px;
             border-top: 1px solid #2a2a2a;
             padding-top: 20px;
@@ -203,27 +200,27 @@
         }
         #quick-start-dates-wrapper {
             display: flex;
-            align-items: center;
+            align-items: center; /* Vertically align items if #quick-start-dates wraps */
             justify-content: center;
-            flex-wrap: nowrap;
+            /* flex-wrap: nowrap; Removed to allow natural wrapping of children if needed, though #quick-start-dates handles its own content wrapping */
             margin-bottom: 5px;
             width: 100%;
             margin-top: 0;
         }
         #quick-start-dates {
-            text-align: center;
-            white-space: nowrap;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            /* white-space: nowrap; Removed to allow wrapping */
+            /* overflow-x: auto; Removed as wrapping is preferred */
+            text-align: center; /* Center the wrapped lines of links */
             padding: 0 5px;
-            display: inline-block;
+            display: inline-block; /* Allows it to be centered by parent flex and wrap content */
+            max-width: calc(100% - 120px); /* Example: prevent it from pushing descriptor too far, adjust as needed */
         }
         .quick-links-descriptor {
             font-size: 0.9em;
             color: #b0b0b0;
             text-transform: lowercase;
             margin-left: 8px;
-            white-space: nowrap;
+            white-space: nowrap; /* Keep this descriptor on one line */
         }
         .inline-date-link {
             color: #88c0d0;
@@ -274,7 +271,6 @@
             #game-minutes-big { font-size: 12em; }
             #ticker-unit { font-size: 2.2em; }
             #ticker-seconds { font-size: 1.8em; }
-            /* #half-time-message rule removed */
             #intro-question { font-size: 0.8em; }
              h1 { font-size: 1.4em; }
         }
@@ -289,6 +285,7 @@
             .date-link, .inline-date-link, .input-sub-links { font-size: 0.8em; margin: 0 3px;}
             .quick-links-descriptor { font-size: 0.8em; }
             #term-length-label { font-size: 0.8em; }
+            #quick-start-dates { max-width: calc(100% - 100px); } /* Adjust for smaller screens */
         }
         @media (max-width: 420px) {
             #game-minutes-big { font-size: 7em; }
@@ -301,6 +298,15 @@
              .quick-links-descriptor { font-size: 0.7em; }
              #quick-start-dates {
                 font-size: 0.9em;
+                max-width: 100%; /* Allow full width and rely on text-align center */
+             }
+             #quick-start-dates-wrapper {
+                flex-direction: column; /* Stack links and descriptor on very small screens */
+                align-items: center;
+             }
+             .quick-links-descriptor {
+                margin-left: 0;
+                margin-top: 4px;
              }
              #term-length-label { font-size: 0.75em; }
         }
@@ -319,6 +325,7 @@
                 <p id="ticker-unit">MINUTES</p>
                 <p id="ticker-seconds">AND 00 FUCKING SECONDS<span class="term-explainer-asterisk">*</span></p>
             </div>
+
             <div id="custom-term-section">
 
                 <div id="quick-start-dates-wrapper">
@@ -340,7 +347,7 @@
                 <label id="todays-date-label" for="todays-date-input">todays date (or date of political event):</label>
                 <input type="date" id="todays-date-input" aria-labelledby="todays-date-label">
                 <div class="input-sub-links">
-                    eg <span class="inline-date-link" id="truss-red-card-link" data-date="2022-10-20" data-start-date="2022-09-06" aria-label="Set today's date to October 20, 2022 and term start to Sept 6, 2022 (Truss' red card event)">truss' red card</span>
+                    <span class="inline-date-link" id="truss-red-card-link" data-date="2022-10-20" data-start-date="2022-09-06" aria-label="Set today's date to October 20, 2022 and term start to Sept 6, 2022 (Truss' red card event)">truss' red card</span>
                     <span class="grey-text"> or </span>
                     <span class="inline-date-link" id="clegg-sorry-link" data-date="2012-09-19" data-start-date="2010-05-11" aria-label="Set today's date to September 19, 2012, term start to May 11, 2010 and term to 5 years (Clegg's I'm sorry event)">clegg's im sorry</span>
                     <span class="grey-text"> or </span>
@@ -372,7 +379,6 @@
         const gameMinutesBigElement = document.getElementById('game-minutes-big');
         const tickerUnitElement = document.getElementById('ticker-unit');
         const tickerSecondsElement = document.getElementById('ticker-seconds');
-        // halfTimeMessageElement removed
         const currentYearElement = document.getElementById('current-year');
         const termLengthInputElement = document.getElementById('term-length-input');
         const electionDateInputElement = document.getElementById('election-date-input');
@@ -409,7 +415,6 @@
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = "00";
             if (tickerUnitElement) tickerUnitElement.textContent = "MINUTES";
             if (tickerSecondsElement) tickerSecondsElement.innerHTML = "AND 00 FUCKING SECONDS<span class=\"term-explainer-asterisk\">*</span>";
-            // halfTimeMessageElement.innerHTML = " "; // Line removed
         }
 
         function handleElectionDateChange() {
@@ -479,7 +484,6 @@
             let unitText = "MINUTES";
             let secondsTextPrefix = "AND ";
             let secondsTextSuffix = " FUCKING SECONDS";
-            // halfTimeText variable removed
 
             if (elapsedMilliseconds < 0) {
                 introText = "THE POLITICAL MATCH STARTS IN...";
@@ -495,7 +499,6 @@
 
                 if (tickerIntroElement) tickerIntroElement.textContent = introText;
                 if (tickerUnitElement) tickerUnitElement.textContent = unitText;
-                // halfTimeMessageElement update removed
                 return;
             }
 
@@ -511,7 +514,6 @@
                 introText = "FOR FUCKS SAKE IT'S BEEN A FULL FUCKING";
                 unitText = (footballMatchDurationMinutes === 1) ? "MINUTE." : "MINUTES.";
             }
-            // halfTimeText related logic removed
 
             if (tickerIntroElement) tickerIntroElement.textContent = introText;
             if (gameMinutesBigElement) gameMinutesBigElement.textContent = String(gameMinutes).padStart(2, '0');
@@ -519,7 +521,6 @@
             if (tickerSecondsElement) {
                 tickerSecondsElement.innerHTML = secondsTextPrefix + String(gameSeconds).padStart(2, '0') + secondsTextSuffix + "<span class=\"term-explainer-asterisk\">*</span>";
             }
-            // halfTimeMessageElement update removed
         }
 
         document.addEventListener('DOMContentLoaded', function() {
