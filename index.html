@@ -354,7 +354,7 @@
                 <input type="number" id="term-length-input" value="4.56" step="0.01" min="0.1" aria-label="custom term length in years, based upon the 2019 to 2024 parliament which was ~4½">
             </div>
 
-            <p class="details-section">This site visualises the duration of the current UK parliamentary term as a 90-minute football match. It is a personal project.</p>
+            <p class="details-section">This site visualises the duration of the current UK parliamentary term as a 90-minute football match. This is a personal project.</p>
         </main>
 
         <footer>
@@ -386,7 +386,7 @@
         const cleggTuitionFeesLink = document.getElementById('clegg-tuition-fees-link');
         const brownBigotedLink = document.getElementById('brown-bigoted-link');
         const cameronBrexitLink = document.getElementById('cameron-brexit-link');
-        const sunakBravermanLink = document.getElementById('sunak-braverman-link'); // New link
+        const sunakBravermanLink = document.getElementById('sunak-braverman-link');
 
         function getTodaysDateString() {
             const today = new Date();
@@ -456,9 +456,8 @@
             return effectiveNow;
         }
 
-        // Modified updateTicker to accept an optional customNowTime for precise event calculations
         function updateTicker(customNowTime) {
-            const now = customNowTime || getEffectiveNow(); // Use customNowTime if provided
+            const now = customNowTime || getEffectiveNow();
 
              if (!(governmentStartDate instanceof Date) || isNaN(governmentStartDate.getTime())) {
                 governmentStartDate = new Date(DEFAULT_GOVERNMENT_START_DATE_STRING + "T00:00:00Z");
@@ -540,8 +539,8 @@
                 todaysDateInputElement.value = getTodaysDateString();
             }
 
-            updateTicker(); // Initial call
-            setInterval(() => updateTicker(), 1000); // Interval calls without custom time
+            updateTicker();
+            setInterval(() => updateTicker(), 1000);
 
             if (termLengthInputElement) {
                 termLengthInputElement.addEventListener('input', () => updateTicker());
@@ -608,15 +607,15 @@
                 if (linkElement) {
                     linkElement.addEventListener('click', function(event) {
                         event.preventDefault();
-                        const todayDateToSet = this.dataset.date || this.dataset.todaysDate; // For sunak-braverman data attr
+                        const todayDateToSet = this.dataset.date || this.dataset.todaysDate;
                         const termStartDateToSet = this.dataset.startDate;
-                        const termLengthToSet = specificTermLength || this.dataset.termLength; // Use specific if provided
-                        const eventDateTime = this.dataset.eventDatetime; // For precise time
+                        const termLengthToSet = specificTermLength || this.dataset.termLength;
+                        const eventDateTime = this.dataset.eventDatetime;
 
                         let preciseNowForCalc = null;
                         if (eventDateTime) {
                             preciseNowForCalc = new Date(eventDateTime);
-                            if (todayDateToSet && todaysDateInputElement) { // Set visual input to date part
+                            if (todayDateToSet && todaysDateInputElement) {
                                 todaysDateInputElement.value = todayDateToSet;
                             }
                         } else if (todayDateToSet && todaysDateInputElement) {
@@ -633,22 +632,22 @@
                             if (termLengthToSet && termLengthInputElement) {
                                 termLengthInputElement.value = parseFloat(termLengthToSet).toFixed(2);
                             }
-                        } else { // Default behavior for links like Blair's Iraq, Truss' Mini Budget
+                        } else {
                              if (termLengthInputElement) {
                                 termLengthInputElement.value = DEFAULT_TERM_YEARS_FLOAT.toFixed(2);
                             }
                         }
-                        updateTicker(preciseNowForCalc); // Pass precise time if available
+                        updateTicker(preciseNowForCalc);
                     });
                 }
             }
 
             setupInlineEventLink(blairIraqLink);
-            setupInlineEventLink(trussMiniBudgetLink); // trussMiniBudgetLink keeps default term length
+            setupInlineEventLink(trussMiniBudgetLink);
             setupInlineEventLink(cleggTuitionFeesLink, true, "5.00");
-            setupInlineEventLink(brownBigotedLink, true); // Uses data-term-length
-            setupInlineEventLink(cameronBrexitLink, true); // Uses data-term-length
-            setupInlineEventLink(sunakBravermanLink); // Uses precise event time
+            setupInlineEventLink(brownBigotedLink, true);
+            setupInlineEventLink(cameronBrexitLink, true);
+            setupInlineEventLink(sunakBravermanLink);
         });
     </script>
 </body>
